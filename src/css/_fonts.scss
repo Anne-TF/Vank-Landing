@@ -1,0 +1,51 @@
+@font-face {
+  font-family: PPObjectSans-Regular;
+  src: url(../assets/fonts/PPObjectSans-Regular.otf);
+}
+
+@font-face {
+  font-family: Mulish-SemiBold;
+  src: url(../assets/fonts/Mulish-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: PPObjectSans-Bold;
+  src: url(../assets/fonts/PPObjectSans-Bold.otf);
+}
+
+$regular: "PPObjectSans-Regular";
+$semi-bold: "Mulish-SemiBold";
+$bold: "PPObjectSans-Bold";
+
+$fonts: (
+  "regular": $regular,
+  "semi-bold": $semi-bold,
+  "bold": $bold,
+);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $semi-bold;
+}
+
+@for $size from 2 through 100 {
+  .fs-#{$size} {
+    font-size: #{$size}px !important;
+  }
+  .lh-#{$size} {
+    line-height: #{$size}px !important;
+  }
+  .ls-#{$size} {
+    letter-spacing: #{$size}px !important;
+  }
+}
+
+@each $name, $font in $fonts {
+  .text-#{$name} {
+    font-family: $font !important;
+  }
+}
