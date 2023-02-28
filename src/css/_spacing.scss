@@ -36,6 +36,9 @@
     padding-right: #{$size}px !important;
     padding-left: #{$size}px !important;
   }
+  .pt-#{$size} {
+    padding-top: #{$size}px !important;
+  }
   .pb-#{$size} {
     padding-bottom: #{$size}px !important;
   }
