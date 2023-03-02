@@ -16,6 +16,7 @@ $colors: (
   "danger": $vk-danger,
   "info": $vk-info,
   "warning" : $vk-warning,
+  "grey": $vk-grey
 );
 
 // COLOR RELATED CLASSED
@@ -45,7 +46,7 @@ $colors: (
 html,
 body {
   font-family: $regular;
-  color: $vk-accent;
+  color: black;
 }
 
 // CLASSES
@@ -62,6 +63,34 @@ body {
     padding: 0 !important;
   }
 }
+
+.rounded-white-border-input {
+  .q-field--outlined .q-field__control::before {
+    border: 1px solid white !important;
+  }
+}
+
+.white-border-bottom-input {
+  .q-field--standard .q-field__control::before {
+    border-bottom: 1px solid #F5F5F5 !important;
+  }
+}
+
+.ultra-dense-input {
+  .q-field__control {
+    height: 30px !important;
+    border-radius: 4px;
+  }
+  .q-field__marginal {
+    height: 30px !important;
+  }
+
+  .q-field__native, .q-field__prefix, .q-field__suffix, .q-field__input
+  {
+    padding: 0px;
+  }
+}
+
 
 a {
   cursor: pointer;

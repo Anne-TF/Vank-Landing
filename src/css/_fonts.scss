@@ -29,7 +29,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $semi-bold;
+  font-family: $bold;
+  font-weight: normal !important;
 }
 
 @for $size from 2 through 100 {
@@ -45,7 +46,9 @@ h6 {
 }
 
 @each $name, $font in $fonts {
+  $value: if($name == 'semi-bold',bold,normal);
   .text-#{$name} {
     font-family: $font !important;
+    font-weight: $value;
   }
 }
