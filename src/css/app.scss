@@ -76,6 +76,22 @@ body {
   }
 }
 
+.ultra-dense-input {
+  .q-field__control {
+    height: 30px !important;
+    border-radius: 4px;
+  }
+  .q-field__marginal {
+    height: 30px !important;
+  }
+
+  .q-field__native, .q-field__prefix, .q-field__suffix, .q-field__input
+  {
+    padding: 0px;
+  }
+}
+
+
 a {
   cursor: pointer;
 }

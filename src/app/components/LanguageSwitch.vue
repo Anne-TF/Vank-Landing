@@ -40,10 +40,7 @@
         clickable
         @click="setLang(opt.value)"
         class="q-px-md q-py-xs br-28"
-        :class="opt.value === locale ? 'bg-ar-tertiary' : 'text-white'">
-        <q-item-section>
-          <q-item-label class="fs-14"> {{ opt.label }} </q-item-label>
-        </q-item-section>
+        :class="opt.value === locale ? 'bg-vk-secondary' : 'text-vk-accent'">
         <q-item-section side>
           <q-avatar class="ml-4">
             <q-icon
@@ -52,6 +49,9 @@
               :name="`img:flags/${opt.icon}.svg`"
             />
           </q-avatar>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label class="fs-14"> {{ opt.label }} </q-item-label>
         </q-item-section>
       </q-item>
     </q-list>

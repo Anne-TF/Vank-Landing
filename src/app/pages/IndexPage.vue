@@ -5,8 +5,10 @@
      }">
     <!-- FIRST SECTION --->
     <div style="height: 96vh; contain: content">
-      <!-- YELLOW SECTION --->
-      <div class="bg-vk-secondary hp-100 wp-50 flex flex-center" style="position: absolute; top: 0; right: 0; z-index: 0;">
+      <!-- YELLOW SECTION FOR DESKTOP --->
+      <div
+        v-if="$q.screen.gt.sm"
+        class="bg-vk-secondary hp-100 wp-50 flex flex-center" style="position: absolute; top: 0; right: 0; z-index: 0;">
         <q-icon name="img:icons/lady.svg" class="q-mb-xl" size="55vh" />
         <!-- TEXT US BTN --->
         <q-btn
@@ -22,9 +24,10 @@
           class="text-bold q-px-lg absolute-bottom-right mb-50 q-mr-xl"
           />
       </div>
-      <!-- NAVBAR -->
+      <!-- NAVBAR FOR DESKTOP -->
       <div
         class="flex flex-inline justify-between"
+        v-if="$q.screen.gt.sm"
         :class="{ 'q-pt-lg q-px-xl' : $q.screen.gt.sm }" style="z-index: 9;">
         <q-icon name="img:icons/vank-black.svg" style="width: 10vh; height: 5vh;" />
         <div style="z-index: 9" class="flex flex-center q-gutter-x-lg wp-60 pl-108">
@@ -45,6 +48,7 @@
               'q-mr-sm' : $q.screen.gt.sm
              }"
             class="text-bold"
+            href="http://novapro.io:9000/#/login?mode=email"
             style="min-width: 10vh; height: 30px;"
             :label="$t('Home.navbar.login')"
           />
@@ -53,39 +57,59 @@
             flat
             rounded
             unelevated
+            href="http://novapro.io:9000/#/sign-up"
             style="height: 30px;"
             :label="$t('Home.navbar.signUp')"
           />
         </div>
       </div>
 
-      <!-- GREETING -->
+      <!-- GREETING MOBILE/DESKTOP -->
       <div
-        class="flex flex-center wp-50 hp-82"
-        :class="{ 'q-pt-lg q-px-xl' : $q.screen.gt.sm }" style="z-index: 9;">
-        <div>
-          <div style="height: 18vh;">
-            <p class="no-margin lh-40 text-vk-grey" :class="{ 'fs-26' : $q.screen.gt.sm }">Hello there!</p>
-            <h3 class="no-margin lh-50">{{ $t('Home.thisIsNoBank') }} <br /> {{$t('Home.its')}}</h3>
-            <q-icon name="img:icons/vank-line.svg" style="width: 22vh; height: 10vh; top: -55px; margin-left: 5em;" />
+        :class="{
+          'q-pt-lg q-px-xl wp-50 flex flex-center hp-82' : $q.screen.gt.sm,
+          'wp-100 mt-90' : $q.screen.lt.md
+        }" style="z-index: 9;">
+        <div :class="{ 'flex justify-center' : $q.screen.lt.md }">
+          <div :class="{ 'flex justify-center' : $q.screen.lt.md }" :style="`${ $q.screen.gt.sm ? 'height: 18vh;' : ''}`">
+            <p class="no-margin lh-40 text-vk-grey"
+               :class="{
+                  'fs-26' : $q.screen.gt.sm,
+                  'fs-22 text-center' : $q.screen.lt.md
+                }">
+              Hello there!</p>
+            <h3
+              :class="{
+                'fs-25 wp-100 lh-20 text-center' : $q.screen.lt.md,
+                'lh-50' : $q.screen.gt.sm
+              }"
+              class="no-margin">{{ $t('Home.thisIsNoBank') }}
+              <br v-if="$q.screen.gt.sm" /> {{$t('Home.its')}}</h3>
+            <q-icon
+              name="img:icons/vank-line.svg"
+              :class="{ 'q-mt-sm' : $q.screen.lt.md }"
+              :style="`width: ${$q.screen.gt.sm ? '22vh' : '11em'}; height: 10vh; ${$q.screen.gt.sm ? 'top: -55px; margin-left: 5em;' : ''}`" />
           </div>
 
           <p
             class="text-center text-vk-grey"
             :class="{
-              'fs-25' : $q.screen.gt.sm
+              'fs-25' : $q.screen.gt.sm,
+              'fs-18 wp-50 q-mt-sm' : $q.screen.lt.md
             }"
             v-text="$t('Home.manageYourMoney')" />
 
-          <div class="q-mt-xl">
+          <div :class="{ 'wp-100 flex flex-inline justify-center q-mt-sm' : $q.screen.lt.md, 'q-mt-xl' : $q.screen.gt.sm }">
             <q-btn
               color="vk-secondary"
-              class="text-vk-accent text-semi-bold wp-40 q-mr-md"
+              class="text-vk-accent text-semi-bold q-mr-md"
               rounded
               :class="{
-                'fs-16 q-py-sm' : $q.screen.gt.sm
+                'fs-16 q-py-sm wp-40' : $q.screen.gt.sm,
+                'wp-30 q-py-none' : $q.screen.lt.md
               }"
               no-caps
+              href="http://novapro.io:9000/#/login?mode=email"
               unelevated
               :label="$t('Home.navbar.login')"
             />
@@ -93,6 +117,7 @@
               class="text-vk-accent text-semi-bold q-px-lg"
               flat
               rounded
+              href="http://novapro.io:9000/#/sign-up"
               :class="{
                 'fs-16' : $q.screen.gt.sm
               }"
@@ -102,6 +127,13 @@
           </div>
         </div>
       </div>
+
+      <!-- YELLOW SECTION MOBILE --->
+      <div
+        v-if="$q.screen.lt.md"
+        class="bg-vk-secondary wp-100 flex q-mt-xl flex-center" style="height: 50vh;">
+        <q-icon name="img:icons/lady.svg" size="30vh" />
+      </div>
     </div>
 
     <!-- TRANSFER, RECEIVE AND SAVE SECTION -->
@@ -110,35 +142,52 @@
         'flex flex-center' : $q.screen.gt.sm
       }"
       class="bg-white">
-      <div class="wp-60 column items-center justify-between hp-100">
-        <div class="wp-70 row" :class="{ 'mt-90' : $q.screen.gt.sm }">
+      <div
+          class="hp-100"
+         :class="{
+            'column items-center justify-between' : $q.screen.gt.sm,
+            'wp-65' : $q.screen.gt.md,
+            'wp-80' : $q.screen.lt.lg && $q.screen.gt.sm,
+            'q-px-md' : $q.screen.lt.md
+         }">
+        <div :class="{ 'mt-90 wp-70 row' : $q.screen.gt.sm, 'q-pt-lg' : $q.screen.lt.md }">
           <h3
-            class="text-regular q-mb-xl q-mt-none text-center col-12"
-            :class="{ 'fs-40' : $q.screen.gt.sm }" v-text="$t('Home.tranfer')" />
+            class="text-regular q-mt-none text-center col-12"
+            :class="{ 'fs-40 q-mb-xl' : $q.screen.gt.sm, 'fs-25 q-mb-md' : $q.screen.lt.md }" v-text="$t('Home.tranfer')" />
 
           <div class="col-12 col-sm-6">
-            <p class="text-vk-grey no-margin" :class="{ 'fs-25' : $q.screen.gt.sm }" v-text="$t('Home.withAnApp')" />
-            <p class="no-margin text-bold" :class="{ 'text-h3 q-mt-none lh-60' : $q.screen.gt.sm }">
+            <p
+              class="text-vk-grey no-margin" :class="{ 'fs-25' : $q.screen.gt.sm, 'fs-18' : $q.screen.lt.md }"
+              v-text="$t('Home.withAnApp')" />
+            <p class="text-bold"
+               :class="{ 'text-h3 q-mt-none lh-60 no-margin' : $q.screen.gt.sm, 'fs-40 lh-50 q-mt-sm q-mb-none' : $q.screen.lt.md }">
               <span v-text="$t('Home.a').concat(' ')" />
               <span class="text-vk-secondary" v-text="$t('Home.b')" />
               <span v-text="$t('Home.ank')" /> <br />
-              <q-icon name="img:icons/v.svg" size="48px" :style="`position: absolute; margin-top: -56px; margin-left: ${locale.includes('es') ? '1.3em' : '0.65em'};`" />
+              <q-icon
+                name="img:icons/v.svg" :size="$q.screen.gt.sm ? '48px' : '41px'"
+                :style="`position: absolute; margin-top: ${ $q.screen.gt.sm ? '-56px' : '-50px'}; margin-left: ${locale.includes('es') ? '1.3em' : '0.65em'};`" />
               <span v-text="$t('Home.intoMusic')" /> <br />
               <span v-text="$t('Home.forYourEars')" />
             </p>
           </div>
 
           <p
-            class="text-vk-grey col-12 col-sm-6 flex justify-end items-center"
-            :class="{ 'fs-16 lh-25' : $q.screen.gt.sm }"
+            class="text-vk-grey"
+            :class="{
+              'fs-16 lh-25 col-12 col-sm-6 flex justify-end items-center' : $q.screen.gt.sm,
+              'fs-16 q-mt-xl text-right' : $q.screen.lt.md
+            }"
             v-html="$t('Home.weAreTheSolution').replace(/\n/g, '<br />')" />
         </div>
 
         <div class="mt-80">
           <p
+            class="q-mb-lg"
             :class="{
-            'fs-40 q-mb-lg' : $q.screen.gt.sm
-          }"
+              'fs-40' : $q.screen.gt.sm,
+              'fs-25 text-center' : $q.screen.lt.md
+            }"
             v-text="$t('Home.hereWeAllFit')" />
           <q-tabs
             v-model="tab"
@@ -158,20 +207,19 @@
               :label="$t('Home.minors')" />
           </q-tabs>
         </div>
-
       </div>
     </div>
 
     <!-- TABS -->
-    <!-- NATURAL PERSON TAB --->
-    <div style="height: 39vh;" class="wp-100 flex justify-center q-pb-none">
+    <div :style="`${$q.screen.gt.sm ? 'height: 39vh;' : ''}`" class="wp-100 flex justify-center q-pb-none">
       <div
         :class="{
-            'q-mt-xl wp-80' : $q.screen.gt.sm
+            'q-mt-xl wp-80' : $q.screen.gt.md,
+            'q-mt-xl wp-98' : $q.screen.gt.sm && $q.screen.lt.lg,
           }"
-        style="position: absolute; margin-top: 5vh;"
+        :style="`${$q.screen.gt.sm ? 'position: absolute; margin-top: 5vh;' : ''}`"
         class="flex justify-center">
-        <div class="flex flex-inline q-gutter-x-lg">
+        <div :class="{ 'flex-inline q-gutter-x-lg' : $q.screen.gt.sm, 'justify-center q-mt-md wp-100' : $q.screen.lt.md }" class="flex">
         <q-img
           height="38vh" width="32vh"
           v-if="tab === 'natural'"
@@ -193,72 +241,102 @@
 
           <div
             v-if="tab === 'natural'"
-            class="flex flex-inline q-mt-md q-pl-xl fadeInText">
-            <q-icon name="img:icons/steps.svg" style="height: 25vh; width: 5vh" class="q-mt-md" />
-            <div :style="`font-size: 2vh; line-height: 4.4vh;`">
+            :class="{
+              'q-pl-xl' : $q.screen.gt.md,
+              'justify-center' : $q.screen.lt.md,
+              'wp-55' : $q.screen.lt.xl && $q.screen.gt.sm
+            }"
+            class="flex flex-inline q-mt-md fadeInText">
+            <q-icon name="img:icons/steps.svg" style="height: 26vh; width: 5vh" :class="{ 'q-mt-md' : $q.screen.gt.sm, 'mt-13' : $q.screen.lt.md }" />
+            <div :style="`font-size: 2vh; line-height: 4.4vh;`" class="wp-80">
               <p v-text="$t('Home.naturalSteps.one')" />
-              <p v-text="$t('Home.naturalSteps.two')" />
-              <p v-text="$t('Home.naturalSteps.three')" />
-              <p v-text="$t('Home.naturalSteps.four')" />
-              <p v-text="$t('Home.naturalSteps.five')" />
+              <p :style="`${$q.screen.lt.md && locale.includes('es') ? 'line-height: 1.2em;' : ''}`" v-text="$t('Home.naturalSteps.two')" />
+              <p :style="`${$q.screen.lt.sm && locale.includes('es') ? 'line-height: 1.2em;' : ''}`" v-text="$t('Home.naturalSteps.three')" />
+              <p :style="`${$q.screen.lt.sm && locale.includes('es') ? 'line-height: 1.2em;' : ''}`" v-text="$t('Home.naturalSteps.four')" />
+              <p :class="{ 'mt-30' : $q.screen.gt.sm }" v-text="$t('Home.naturalSteps.five')" />
             </div>
 
-            <div class="wp-100 q-ml-lg">
+            <div class="wp-80" :class="{ 'q-ml-lg' : $q.screen.gt.sm, 'ml-56 q-mb-md' : $q.screen.lt.md }">
               <q-btn
                 no-caps
                 rounded
                 color="vk-secondary"
                 unelevated
+                href="http://novapro.io:9000/#/sign-up"
+                :class="{
+                  'q-py-sm' : $q.screen.gt.sm,
+                  'fs-13 q-mt-lg' : $q.screen.lt.md
+                }"
                 :label="$t('Home.navbar.signUp')"
-                class="text-vk-accent text-bold q-px-xl q-py-sm"
+                class="text-vk-accent text-bold q-px-xl"
               />
             </div>
           </div>
 
           <div
             v-if="tab === 'business'"
-            class="flex flex-inline q-mt-md q-pl-xl fadeInText">
-            <q-icon name="img:icons/steps.svg" style="height: 25vh; width: 5vh" class="q-mt-md" />
-            <div :style="`font-size: 2vh; line-height: 4.4vh;`">
+            :class="{
+              'q-pl-xl' : $q.screen.gt.md,
+              'justify-center' : $q.screen.lt.md,
+              'wp-55' : $q.screen.lt.xl && $q.screen.gt.sm
+            }"
+            class="flex flex-inline q-mt-md fadeInText">
+            <q-icon name="img:icons/steps.svg" style="height: 26vh; width: 5vh" :class="{ 'q-mt-md' : $q.screen.gt.sm, 'mt-13' : $q.screen.lt.md }" />
+            <div :style="`font-size: 2vh; line-height: 4.3vh;`" class="wp-80">
               <p v-text="$t('Home.businessSteps.one')" />
               <p v-text="$t('Home.businessSteps.two')" />
               <p v-text="$t('Home.businessSteps.three')" />
               <p v-text="$t('Home.businessSteps.four')" />
-              <p v-text="$t('Home.businessSteps.five')" />
+              <p :class="{ 'mt-35' : $q.screen.gt.md }" v-text="$t('Home.businessSteps.five')" />
             </div>
 
-            <div class="wp-100 q-ml-lg">
+            <div class="wp-100" :class="{ 'q-ml-lg' : $q.screen.gt.sm, 'ml-80 q-mb-md' : $q.screen.lt.md }">
               <q-btn
                 no-caps
                 rounded
                 color="vk-secondary"
                 unelevated
+                href="http://novapro.io:9000/#/sign-up"
+                :class="{
+                  'q-py-sm' : $q.screen.gt.sm,
+                  'fs-13 q-mt-lg' : $q.screen.lt.md
+                }"
                 :label="$t('Home.navbar.signUp')"
-                class="text-vk-accent text-bold q-px-xl q-py-sm"
+                class="text-vk-accent text-bold q-px-xl"
               />
             </div>
           </div>
 
           <div
             v-if="tab === 'minors'"
-            class="flex flex-inline q-mt-md q-pl-xl fadeInText">
-            <q-icon name="img:icons/steps.svg" style="height: 25vh; width: 5vh" class="q-mt-md" />
-            <div :style="`font-size: 2vh; line-height: 4.4vh;`">
-              <p v-text="$t('Home.minorsSteps.one')" />
+            :class="{
+              'q-pl-xl' : $q.screen.gt.md,
+              'justify-center' : $q.screen.lt.md,
+              'wp-55' : $q.screen.lt.xl && $q.screen.gt.sm
+            }"
+            class="flex flex-inline q-mt-md fadeInText">
+            <q-icon name="img:icons/steps.svg" style="height: 26vh; width: 5vh" :class="{ 'q-mt-md' : $q.screen.gt.sm, 'mt-13' : $q.screen.lt.md }" />
+            <div :style="`font-size: 1.9vh; line-height: ${$q.screen.lt.md ? '3.5vh' : '4.3vh'};`" class="wp-80">
+              <p :class="{ 'mt-5' : $q.screen.lt.md }" v-text="$t('Home.minorsSteps.one')" />
               <p v-text="$t('Home.minorsSteps.two')" />
-              <p v-text="$t('Home.minorsSteps.three')" />
-              <p v-text="$t('Home.minorsSteps.four')" />
-              <p v-text="$t('Home.minorsSteps.five')" />
+              <p :style="`${$q.screen.lt.lg ? 'line-height: 1.7em;' : ''}`" v-text="$t('Home.minorsSteps.three')" />
+              <p :class="{ 'mt-28' : $q.screen.gt.md }"  v-text="$t('Home.minorsSteps.four')" />
+              <p :class="{ 'mt-28' : $q.screen.gt.md, 'mt-25' : $q.screen.lt.md }" v-text="$t('Home.minorsSteps.five')" />
             </div>
 
-            <div class="wp-100 q-ml-lg">
+            <div class="wp-100" :class="{ 'q-ml-lg' : $q.screen.gt.sm, 'ml-80 q-mb-md' : $q.screen.lt.md }">
               <q-btn
                 no-caps
                 rounded
                 color="vk-secondary"
                 unelevated
+                href="http://novapro.io:9000/#/sign-up"
+                :class="{
+                  'q-py-sm' : $q.screen.gt.sm,
+                  'fs-13 q-mt-lg' : $q.screen.lt.md
+                }"
                 :label="$t('Home.navbar.signUp')"
-                class="text-vk-accent text-bold q-px-xl q-py-sm"
+                class="text-vk-accent text-bold q-px-xl"
               />
             </div>
           </div>
@@ -269,39 +347,46 @@
     <!-- APP WITH A HIGH PERCENTAGE OF WELLNESS SECTION --->
     <div class="bg-white flex flex-center">
       <div
-          class="mt-90"
            :class="{
               'wp-70' : $q.screen.gt.md,
               'wp-80' : $q.screen.lt.lg && $q.screen.gt.sm,
-              'wp-100' : $q.screen.lt.md
+              'wp-100' : $q.screen.lt.md,
+              'mt-90' : $q.screen.gt.sm,
+              'q-mt-xl q-px-md' : $q.screen.lt.md
            }">
-        <h3 class="no-margin text-center" v-html="$t('Home.highWellness').replace(/\n/g, '<br />')" />
+        <h3
+          :class="{
+            'fs-25 lh-30' : $q.screen.lt.md
+          }"
+          class="no-margin text-center" v-html="$t('Home.highWellness').replace(/\n/g, '<br />')" />
         <q-icon
           name="img:icons/yellow-line.svg"
           :style="`
           position: absolute;
-          width: ${locale.includes('es') ? '22em' : '19em'};
-          margin-left: ${locale.includes('es') ? '30vw' : '30vw'};
+          width: ${$q.screen.gt.sm ? `${locale.includes('es') ? '22em' : '19em'}` : `${locale.includes('es') ? '14em' : '11em'}`};
+          margin-left: ${$q.screen.gt.sm ? '30vw' : '33vw'};
           margin-top: ${locale.includes('es') ? '-8px' : '-3px'};`" />
 
         <p
-          class="text-vk-grey text-center wp-100"
+          class="text-vk-grey text-center wp-100 q-mt-lg"
           :class="{
-            'fs-18 q-mt-lg' : $q.screen.gt.sm
+            'fs-18' : $q.screen.gt.sm,
+            'fs-16' : $q.screen.lt.md
           }"
-          v-html="$t('Home.anIntuitivePlatform').replace(/\n/g, '<br />')" />
+          v-html="$q.screen.gt.sm ? $t('Home.anIntuitivePlatform').replace(/\n/g, '<br />') : $t('Home.anIntuitivePlatform')" />
 
         <div
           class="q-mx-auto flex flex-inline justify-between mb-90"
           :class="{
             'mt-70' : $q.screen.gt.sm,
             'wp-75' : $q.screen.gt.md,
-            'wp-100' : $q.screen.lt.lg
+            'wp-100' : $q.screen.lt.lg,
+            'mt-30' : $q.screen.lt.md
           }">
           <q-card
             flat
-            :style="`height: 16vh; width: ${$q.screen.gt.md ? '10vw' : '16vw'}`"
-            :class="`bg-${card.color}`"
+            :style="`height: 16vh; width: ${$q.screen.gt.md ? '10.5vw' : '48%'}`"
+            :class="`bg-${card.color} ${$q.screen.lt.md && index <= 1 ? 'q-mb-md' : ''}`"
             class="br-12 flex flex-center"
             v-for="(card, index) in cards" :key="index">
             <q-card-section class="no-padding flex flex-center">
@@ -321,17 +406,18 @@
     <!-- VANK CARD SECTION --->
     <div
         class="flex flex-center">
-        <div class="flex flex-inline q-gutter-x-xl">
+        <div class="flex" :class="{ 'flex-inline q-gutter-x-xl' : $q.screen.gt.sm, 'column items-center q-px-md' : $q.screen.lt.md }">
           <q-img
-            height="36vh" width="36vh" class="my-80"
+            height="36vh" width="36vh" :class="{ 'my-80' : $q.screen.gt.sm, 'mt-20' : $q.screen.lt.md }"
             src="../../assets/images/card.webp" />
-          <div class="mt-120 q-pl-xl">
-            <h3 class="q-mt-none q-mb-lg" v-text="$t('Home.vankCard')" />
+          <div :class="{ 'mt-120 q-pl-xl' : $q.screen.gt.sm, 'mt-30 flex justify-center' : $q.screen.lt.md }">
+            <h3 class="q-mt-none" :class="{ 'text-center fs-30 q-mb-sm' : $q.screen.lt.md, 'q-mb-lg' : $q.screen.gt.sm }" v-text="$t('Home.vankCard')" />
             <p
               :class="{
-                'fs-18 lh-30' : $q.screen.gt.sm
+                'fs-18 lh-30' : $q.screen.gt.sm,
+                'fs-16 text-center' : $q.screen.lt.md
               }"
-              class="no-margin text-vk-grey" v-html="$t('Home.discoverNewWays').replace(/\n/g, '<br />')" />
+              class="no-margin text-vk-grey" v-html="$q.screen.gt.sm ? $t('Home.discoverNewWays').replace(/\n/g, '<br />') : $t('Home.discoverNewWays')" />
 
             <q-btn
               no-caps
@@ -340,7 +426,8 @@
               unelevated
               :label="$t('Home.navbar.signUp')"
               :class="{
-                'mt-60' : $q.screen.gt.sm
+                'mt-60' : $q.screen.gt.sm,
+                'mt-50 q-mb-lg' : $q.screen.lt.md
               }"
               class="text-vk-accent text-bold q-px-xl q-py-sm"
             />
@@ -350,49 +437,66 @@
 
     <!-- HERE EVERYTHING IS EASY SECTION --->
     <div
-      style="height: 40vh;"
+      :style="`${$q.screen.gt.sm ? 'height: 40vh;' : '' }`"
+      :class="{
+          'q-px-md' : $q.screen.lt.md
+      }"
       class="flex flex-center bg-white">
       <div class="flex flex-inline items-center q-gutter-x-xl q-mt-xl">
         <div>
           <p
-            class="no-margin text-vk-grey lh-40"
-            :class="{ 'fs-33' : $q.screen.gt.sm }" v-text="$t('Home.hereEverythingIs')" />
+            class="no-margin text-vk-grey"
+            :class="{ 'fs-33 lh-40' : $q.screen.gt.sm, 'fs-20 lh-30' : $q.screen.lt.md }" v-text="$t('Home.hereEverythingIs')" />
           <h3
-            class="no-margin lh-60"
+            class="no-margin"
+            :class="{
+              'fs-35' : $q.screen.lt.md,
+              'lh-60' : $q.screen.gt.sm
+            }"
             v-html="$t('Home.soEasy').replace(/\n/g, '<br />')"/>
-            <q-icon name="img:icons/yellow-line-ticker.svg" style="width: 14vh; height: 30px; position: absolute; margin-top: -80px;" />
+            <q-icon name="img:icons/yellow-line-ticker.svg"
+                    :style="`width: 14vh; height: 30px; position: absolute; margin-top: ${$q.screen.gt.sm ? '-80px' : '-68px'};`" />
         </div>
 
-        <div class="mt-60 flex flex-inline q-gutter-x-xl">
-          <q-card class="bg-vk-tertiary br-10" flat style="width: 200px; height: 200px;">
+        <div class="flex flex-inline"
+             :class="{
+                'mt-60 q-gutter-x-xl' : $q.screen.gt.sm,
+                'wp-88 q-mt-lg' : $q.screen.lt.md,
+                'q-gutter-x-md justify-center' : $q.screen.gt.xs && $q.screen.lt.md,
+                'justify-between' : $q.screen.lt.sm
+             }">
+          <q-card class="bg-vk-tertiary br-10" flat :style="`width: ${$q.screen.gt.sm ? '200px' : '170px'}; height: ${$q.screen.gt.sm ? '200px' : '170px'};`">
             <q-card-section class="q-py-lg flex justify-center">
               <p
                 class="text-center text-vk-grey"
                 :class="{
-                  'fs-20 lh-20' : $q.screen.gt.sm
+                  'fs-20 lh-20' : $q.screen.gt.sm,
+                  'fs-12 wp-100' : $q.screen.lt.sm
                 }"
                 v-html="$t('Home.registerAndCreateAccount').replace(/\n/g, '<br />')" />
-              <q-icon name="img:icons/stepOne.svg" size="80px" />
+              <q-icon name="img:icons/stepOne.svg" :size="$q.screen.gt.xs ? '80px' : '60px'" />
             </q-card-section>
           </q-card>
 
-          <q-card class="bg-vk-tertiary br-10" flat style="width: 200px; height: 200px;">
+          <q-card class="bg-vk-tertiary br-10" flat :style="`width: ${$q.screen.gt.sm ? '200px' : '170px'}; height: ${$q.screen.gt.sm ? '200px' : '170px'};`">
             <q-card-section class="q-py-lg flex justify-center">
               <p
                 class="text-center text-vk-grey"
                 :class="{
-                  'fs-20 lh-20' : $q.screen.gt.sm
+                  'fs-20 lh-20' : $q.screen.gt.sm,
+                  'fs-12 wp-100' : $q.screen.lt.sm
                 }"
                 v-html="$t('Home.depositAndEnjoy').replace(/\n/g, '<br />')" />
-              <q-icon class="mt-20" name="img:icons/stepTwo.svg" size="80px" />
+              <q-icon class="mt-20" name="img:icons/stepTwo.svg" :size="$q.screen.gt.xs ? '80px' : '60px'" />
             </q-card-section>
           </q-card>
         </div>
       </div>
 
-      <div class="wp-100 flex justify-center">
+      <div class="wp-100 flex justify-center" :class="{ 'q-my-lg' : $q.screen.lt.md }">
         <q-btn
           no-caps
+          href="http://novapro.io:9000/#/sign-up"
           rounded
           color="vk-secondary"
           unelevated
@@ -403,23 +507,29 @@
     </div>
 
     <!-- CONTACT US NOW --->
-    <div class="flex flex-center py-90">
-      <h3  class="no-margin text-center wp-100" v-text="$t('Home.contactUsNow')" />
+    <div class="flex flex-center" :class="{ 'py-90' : $q.screen.gt.sm, 'py-40' : $q.screen.lt.md }">
+      <h3 class="no-margin text-center wp-100" :class="{ 'fs-25' : $q.screen.lt.md }" v-text="$t('Home.contactUsNow')" />
       <div
-        class="flex flex-inline justify-center q-mt-xl"
+        class="flex flex-inline justify-center"
         :class="{
           'wp-63' : $q.screen.gt.lg,
-          'wp-90' : $q.screen.lt.xl
+          'wp-90' : $q.screen.lt.xl,
+          'q-mt-xl' : $q.screen.gt.sm,
+          'q-mt-md' : $q.screen.lt.md
         }">
         <q-img src="../../assets/images/coffee.webp" height="34vh" width="28vh" />
-        <q-card flat class="ml-110 wp-60 br-15 bg-vk-secondary">
-          <q-card-section class="q-pa-xl">
+        <q-card flat class="br-15 bg-vk-secondary"
+                :class="{ 'ml-110 wp-60' : $q.screen.gt.sm, 'q-mt-lg' : $q.screen.lt.md }">
+          <q-card-section :class="{ 'q-pa-xl' : $q.screen.gt.sm, 'q-py-lg q-px-lg' : $q.screen.lt.md }">
             <q-form class="row no-margin rounded-white-border-input">
               <div class="col-12 col-md-6" :class="{ 'q-pr-xl' : $q.screen.gt.sm }">
-                <p class="fs-16 no-margin" v-text="$t('Fields.fullName')" />
+                <p class="no-margin" :class="{ 'fs-14' : $q.screen.lt.md, 'fs-16' : $q.screen.gt.sm }" v-text="$t('Fields.fullName').concat(' *')" />
                 <q-input
                   dense
                   rounded
+                  :class="{
+                    'ultra-dense-input' : $q.screen.lt.md
+                  }"
                   outlined
                   color="white"
                   class="q-mt-sm"
@@ -427,11 +537,30 @@
                 />
               </div>
 
-              <div class="col-12 col-md-6" :class="{ 'q-pl-xl' : $q.screen.gt.sm }">
-                <p class="fs-16 no-margin" v-text="$t('Fields.email').concat(' *')" />
+              <div class="col-12 col-md-6" :class="{ 'q-pl-xl' : $q.screen.gt.sm, 'q-mt-md' : $q.screen.lt.md }">
+                <p class="no-margin" v-text="$t('Fields.email').concat(' *')"
+                   :class="{ 'fs-16' : $q.screen.gt.sm, 'fs-14' : $q.screen.lt.md }" />
                 <q-input
                   dense
                   rounded
+                  outlined
+                  :class="{
+                    'ultra-dense-input' : $q.screen.lt.md
+                  }"
+                  color="white"
+                  class="q-mt-sm"
+                  bg-color="white"
+                />
+              </div>
+
+              <div class="col-12 col-md-6" :class="{ 'q-pr-xl q-mt-lg' : $q.screen.gt.sm, 'q-mt-md' : $q.screen.lt.md  }">
+                <p class="no-margin" v-text="$t('Fields.contactNumber').concat(' *')" :class="{ 'fs-16' : $q.screen.gt.sm, 'fs-14' : $q.screen.lt.md }" />
+                <q-input
+                  dense
+                  rounded
+                  :class="{
+                    'ultra-dense-input' : $q.screen.lt.md
+                  }"
                   outlined
                   color="white"
                   class="q-mt-sm"
@@ -439,32 +568,23 @@
                 />
               </div>
 
-              <div class="col-12 col-md-6 q-mt-lg" :class="{ 'q-pr-xl' : $q.screen.gt.sm }">
-                <p class="fs-16 no-margin" v-text="$t('Fields.contactNumber').concat(' *')" />
+              <div class="col-12 col-md-6" :class="{ 'q-pr-xl q-mt-lg' : $q.screen.gt.sm, 'q-mt-md' : $q.screen.lt.md  }">
+                <p class="no-margin" v-text="$t('Fields.availableTime')" :class="{ 'fs-16' : $q.screen.gt.sm, 'fs-14' : $q.screen.lt.md }" />
                 <q-input
                   dense
                   rounded
                   outlined
+                  :class="{
+                    'ultra-dense-input' : $q.screen.lt.md
+                  }"
                   color="white"
                   class="q-mt-sm"
                   bg-color="white"
                 />
               </div>
 
-              <div class="col-12 col-md-6 q-mt-lg" :class="{ 'q-pl-xl' : $q.screen.gt.sm }">
-                <p class="fs-16 no-margin" v-text="$t('Fields.availableTime')" />
-                <q-input
-                  dense
-                  rounded
-                  outlined
-                  color="white"
-                  class="q-mt-sm"
-                  bg-color="white"
-                />
-              </div>
-
-              <div class="col-12 q-mt-lg">
-                <p class="fs-16 no-margin" v-text="$t('Fields.message')" />
+              <div class="col-12" :class="{ 'q-pr-xl q-mt-lg' : $q.screen.gt.sm, 'q-mt-md' : $q.screen.lt.md  }">
+                <p class="no-margin" v-text="$t('Fields.message')" :class="{ 'fs-16' : $q.screen.gt.sm, 'fs-14' : $q.screen.lt.md }" />
                 <q-input
                   dense
                   rounded
@@ -481,6 +601,9 @@
                 color="vk-accent"
                 no-caps
                 rounded
+                :class="{
+                    'wp-100' : $q.screen.lt.md
+                }"
                 class="q-mt-xl q-px-xl text-semi-bold"
                 unelevated
               />
@@ -493,8 +616,8 @@
 </template>
 
 <script setup lang="ts">
-import {useI18n} from 'vue-i18n';
-import {ref} from 'vue';
+import { useI18n } from 'vue-i18n';
+import { ref } from 'vue';
 
 const { locale } = useI18n({ useScope: 'global' });
 const tab = ref<'natural' | 'business' | 'minors'>('natural');
