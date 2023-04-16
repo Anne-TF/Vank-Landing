@@ -185,10 +185,9 @@
                 unelevated
               />
             </q-form>
-            <q-img
-              width="20vh"
-              style="position: absolute; z-index: 1;right: -60px;bottom: -60px;"
-              src="../../assets/images/card-contact.webp"
+            <q-icon
+              name="img:icons/vank-card.svg"
+              style="position: absolute; z-index: 1;right: -60px;bottom: -60px; width: 20vh; height: 16vh"
             />
           </q-card-section>
         </q-card>

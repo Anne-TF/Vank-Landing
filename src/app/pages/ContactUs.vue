@@ -104,12 +104,8 @@
         </div>
         
       </div>
-      
-
 
       <marquee-vank-component class="q-mb-xl"/>
-      <!-- CONTACT US NOW --->
-
     </q-page>
 </template>
 

@@ -21,23 +21,8 @@
         >
           {{ $t('Home.followUs') }}
           <q-icon
-            name="img:icons/telegram-black.svg"
-            class="q-mr-sm q-ml-lg"
-            size="24px"
-          />
-          <q-icon
-            name="img:icons/telegram-black.svg"
-            class="q-mr-sm"
-            size="24px"
-          />
-          <q-icon
-            name="img:icons/linkedin-black.svg"
-            class="q-mr-sm"
-            size="22px"
-          />
-          <q-icon
             name="img:icons/instagram-black.svg"
-            class="q-mr-sm"
+            class="q-mr-sm q-ml-lg"
             size="22px"
           />
           <q-icon
@@ -47,10 +32,24 @@
           />
           <q-icon
             name="img:icons/twitter-black.svg"
-            class="q-mr-lg"
+            class="q-mr-sm"
             size="25px"
           />
-
+          <q-icon
+            name="img:icons/tiktok-black.svg"
+            class="q-mr-sm"
+            size="23px"
+          />
+          <q-icon
+            name="img:icons/telegram-black.svg"
+            class="q-mr-sm"
+            size="24px"
+          />
+          <q-icon
+            name="img:icons/linkedin-black.svg"
+            class="q-mr-lg"
+            size="22px"
+          />
           <language-switch />
         </q-toolbar-title>
 
@@ -142,7 +141,7 @@
           v-text="$t(`Home.footer.followUs`)"
         />
         <div class="q-gutter-x-md q-mt-md">
-          <q-icon name="img:icons/telegram-yellow.svg" size="1.8em" />
+          <q-icon name="img:icons/tiktok-yellow.svg" size="1.8em" />
           <q-icon name="img:icons/telegram-yellow.svg" size="1.8em" />
           <q-icon name="img:icons/linkedin-yellow.svg" size="1.8em" />
         </div>
@@ -327,21 +326,6 @@
           />
           <div class="flex justify-start items-center">
             <q-icon
-              name="img:icons/telegram-black.svg"
-              class="q-ml-md"
-              size="25px"
-            />
-            <q-icon
-              name="img:icons/telegram-black.svg"
-              class="q-ml-md"
-              size="25px"
-            />
-            <q-icon
-              name="img:icons/linkedin-black.svg"
-              class="q-ml-md"
-              size="22px"
-            />
-            <q-icon
               name="img:icons/instagram-black.svg"
               class="q-ml-md"
               size="22px"
@@ -356,6 +340,22 @@
               class="q-ml-md"
               size="25px"
             />
+            <q-icon
+              name="img:icons/tiktok-black.svg"
+              class="q-ml-md"
+              size="24px"
+            />
+            <q-icon
+              name="img:icons/telegram-black.svg"
+              class="q-ml-md"
+              size="25px"
+            />
+            <q-icon
+              name="img:icons/linkedin-black.svg"
+              class="q-ml-md"
+              size="22px"
+            />
+            
           </div>
         </q-list>
       </div>

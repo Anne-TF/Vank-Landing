@@ -3,6 +3,7 @@
     :class="{
       'q-pb-lg': $q.screen.gt.sm
     }"
+    class="bg-white"
   >
     <!-- FIRST SECTION --->
     <div style="height: 96vh; contain: content" class="bg-vank-card">
@@ -69,7 +70,7 @@
 
     <!-- SECOND SECTION --->
 
-    <div class="q-pa-xl flex flex-center">
+    <div class="q-pa-xl flex flex-center bg-white">
       <div class="flex flex-center q-pa-xl" style="max-width: 1200px;">
         <div class="wp-50">
           <h4
@@ -122,48 +123,41 @@
           />
         </div>
         <div class="wp-50 flex flex-center q-pa-xl">
-          <q-img
-            height="50vh"
-            width="55vh"
-            :class="{   }"
-            src="../../assets/images/company-persons.webp"
-          />
-        </div>
-        <div class="wp-50">
-          <q-img
-            height="50vh"
-            width="60vh"
-            :class="{   }"
-            src="../../assets/images/company-computer.webp"
-          />
-        </div>
-        <div class="wp-50 flex flex-center q-pa-xl">
-
-          <p
-            :class="{
-              'fs-12 lh-30': $q.screen.lt.md,
-              'fs-16 lh-30': $q.screen.gt.sm
-            }"
-            class="text-justify text-black q-mt-md"
-            style="font-weight: 400 !important;"
-            v-html="$t('Company.ourCompanyText3')"
-          />
+          <q-icon
+              name="img:icons/vank-card.svg"
+              style="width: 40vh; height: 32vh"
+            />
         </div>
 
       </div>
     </div>
+
+    <div class="wp-100 bg-white">
+       <marquee-vank-component class="q-mb-xl "/>
+    </div>
+
+   
+
+
+    <!-- CONTACT US --->
     <marquee-component/>
-    <!-- CONTACT US NOW --->
-    <coffee-contact-us></coffee-contact-us>
+
+    <div class="bg-black mb-250" style="position: relative;">
+      <div style="position: relative; bottom:-100px">
+        <variant-contact-us></variant-contact-us>
+      </div>
+      
+    </div>
+    
   </q-page>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import NavbarComponent from '../components/NavbarComponent.vue';
-import CoffeeContactUs from '../components/CoffeeContactUs.vue';
+import VariantContactUs from '../components/VariantContactUs.vue';
 import MarqueeComponent from '../components/MarqueeComponent.vue';
-
+import MarqueeVankComponent from '../components/MarqueeVankComponent.vue';
 const { locale } = useI18n({ useScope: 'global' });
 
 

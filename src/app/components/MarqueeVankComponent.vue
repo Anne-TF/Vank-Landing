@@ -1,5 +1,5 @@
 <template>
-    <div class="wp-100 q-mt-lg overflow-fix">
+    <div class="wp-100 q-pt-lg overflow-fix">
         <div class="marquee2 bg-vk-secondary  text-black marquee-secondary">
             <div>
                 <span class="flex flex-center">
