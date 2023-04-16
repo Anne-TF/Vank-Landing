@@ -3,5 +3,10 @@ export default {
   email: 'Correo electrónico',
   contactNumber: 'Número de contacto',
   availableTime: 'Horario disponible',
-  message: 'Mensaje'
+  message: 'Mensaje',
+  phoneNumber: 'Número de Teléfono',
+  country: 'País',
+  companyOrIndividual: 'Empresa o Persona'
 };
+
+

@@ -1,14 +1,16 @@
 export default {
   followUs: 'Síguenos en',
   navbar: {
-    people: 'Personas',
-    business: 'Negocios',
-    vankCard: 'VankCard',
-    vankVersity: 'VankVersity',
-    company: 'Compañía',
-    contact: 'Contacto',
-    login: 'Iniciar sesión',
-    signUp: 'Regístrate'
+    'people': 'Personas',
+    'minors': 'Menores',
+    'business': 'Negocios',
+    'vankcard': 'VankCard',
+    'vankversity': 'VankVersity',
+    'company': 'Compañía',
+    'contact': 'Contacto',
+    'login': 'Iniciar sesión',
+    'signUp': 'Regístrate',
+    '/': 'Inicio'
   },
   thisIsNoBank: 'Esto no es un banco,',
   its: 'es',
@@ -33,11 +35,11 @@ export default {
     five: 'Que necesiten recibir pagos'
   },
   businessSteps: {
-    one: 'For any type of company',
-    two: 'Must pass verification process',
-    three: 'Have access to be banked',
-    four: 'Who want to invest money',
-    five: 'Who need to receive and make payments'
+    one: 'Para cualquier tipo de empresa',
+    two: 'Debe pasar el proceso de verificación',
+    three: 'Tener acceso a ser bancarizado',
+    four: 'Quienes quieran invertir dinero',
+    five: 'Quienes necesiten recibir y realizar pagos'
   },
   minorsSteps: {
     one: 'Para cualquiera entre 6 y 17 años',
@@ -66,6 +68,10 @@ export default {
   depositAndEnjoy: 'Recarga \n y disfruta',
   contactUsNow: 'Contáctanos ahora',
   sendNow: 'Enviar ahora',
+  transactions:'Transacciones',
+  foreignTrade: 'en Comercio Exterior',
+  inPayments: 'en pagos',
+  countries: 'países',
   footer: {
     people: {
       title: 'Personas',
@@ -95,7 +101,16 @@ export default {
       transfer: 'Regístrate',
       card: 'Contacto'
     },
+    contactWithUs: {
+      title: 'Comunicate con nosotros',
+      email:'contacto@vankweb.com',
+      number: '+(57) 322 478 1323',
+      address: 'Calle 123 a #88-90 para 123',
+      web: 'www.vank.com'
+    },
+    followUs:'Síguenos en redes',
     subscribe: 'Suscripción al newsletter',
-    subscribeNow: 'Suscribirme ahora'
+    subscribeNow: 'Suscribirme ahora',
+    downloadOurApp: 'Descarga nuestra App'
   }
 };
