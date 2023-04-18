@@ -3,13 +3,13 @@
         <div class="marquee2 bg-vk-secondary  text-black marquee-secondary">
             <div>
                 <span class="flex flex-center">
-                    <span :style="`min-width: ${((locale as readonly string[])).includes('es') ? '940px' : '840px'};`">
+                    <span :style="`width: ${((locale as readonly string[])).includes('es') ? '940px' : '840px'};`">
                         {{ $t('ContactUs.thisItsNot') }}
                     </span>
                     <q-icon style="max-width: 180px;" name="img:icons/vank-black.svg" size="10vh" />
                 </span>
                 <span class="flex flex-center">
-                    <span :style="`min-width: ${((locale as readonly string[])).includes('es') ? '940px' : '840px'};`">
+                    <span :style="`width: ${((locale as readonly string[])).includes('es') ? '940px' : '840px'};`">
                         {{ $t('ContactUs.thisItsNot') }}
                     </span>
                     <q-icon style="max-width: 180px;" name="img:icons/vank-black.svg" size="10vh" />
@@ -19,13 +19,13 @@
         <div class="marquee2reverse bg-black  text-vk-secondary marquee-black">
             <div>
                 <span class="flex flex-center">
-                    <span :style="`min-width: ${((locale as readonly string[])).includes('es') ? '940px' : '840px'};`">
+                    <span :style="`width: ${((locale as readonly string[])).includes('es') ? '940px' : '840px'};`">
                         {{ $t('ContactUs.thisItsNot') }}
                     </span>
                     <q-icon style="max-width: 180px;" name="img:icons/vank-yellow.svg" size="10vh" />
                 </span>
                 <span class="flex flex-center">
-                    <span :style="`min-width: ${((locale as readonly string[])).includes('es') ? '940px' : '840px'};`">
+                    <span :style="`width: ${((locale as readonly string[])).includes('es') ? '940px' : '840px'};`">
                         {{ $t('ContactUs.thisItsNot') }}
                     </span>
                     <q-icon style="max-width: 180px;" name="img:icons/vank-yellow.svg" size="10vh" />

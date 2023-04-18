@@ -102,7 +102,7 @@
         <div style="position: relative; bottom:-100px">
           <variant-contact-us></variant-contact-us>
         </div>
-        
+
       </div>
 
       <marquee-vank-component class="q-mb-xl"/>

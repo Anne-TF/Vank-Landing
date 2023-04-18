@@ -320,7 +320,7 @@
                 v-text="$t('Home.naturalSteps.four')"
               />
               <p
-               
+
                 v-text="$t('Home.naturalSteps.five')"
               />
             </div>
@@ -368,7 +368,7 @@
               <p v-text="$t('Home.businessSteps.three')" />
               <p v-text="$t('Home.businessSteps.four')" />
               <p
-                
+
                 v-text="$t('Home.businessSteps.five')"
               />
             </div>

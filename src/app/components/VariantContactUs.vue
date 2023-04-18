@@ -68,7 +68,7 @@
                     'fs-14': $q.screen.lt.md
                   }"
                 />
-                <q-select 
+                <q-select
                   dense
                   rounded
                   :option-label="((locale as readonly string[])).includes('es') ? 'name_es' : 'name_en' "
@@ -199,12 +199,11 @@
 import GetCountriesLocal from 'src/helpers/GetCountriesLocal';
 import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
+import { Country } from './models';
 
 const { locale } = useI18n({ useScope: 'global' });
 
-const countriesData = GetCountriesLocal()
-
-console.log(countriesData)
+const countriesData = ref<Country[]>(GetCountriesLocal());
 
 const country = ref<string>('');
 const companyOrIndividual = ref<string>('');

@@ -1,10 +1,3 @@
-const GetCountriesLocal = () =>
-{
-    return countries;
-};
-
-export default GetCountriesLocal;
-
 const countries = [
     {
       name_en: 'Afghanistan',
@@ -1460,3 +1453,10 @@ const countries = [
     }
   ];
 
+
+const GetCountriesLocal = () =>
+  {
+      return countries;
+  };
+
+export default GetCountriesLocal;

@@ -242,7 +242,7 @@
                   />
                 </div>
               </h4>
-              
+
               <div>
                 <h4
                   :class="{
@@ -295,11 +295,11 @@
                   />
                 </div>
               </h4>
-    
+
             </div>
 
             <div :style="`font-size: 2vh; line-height: 4.4vh;`" class="wp-80 q-mt-xl">
-              <div class="step-father"  
+              <div class="step-father"
                     v-for="(key,index) in ['one','two', 'three', 'four', 'five', 'six']"
                     :key="key"
                   >
@@ -314,7 +314,7 @@
                   v-text="$t(`VankCard.stepperInvididuals.${key}`)"
                 />
               </div>
-              
+
             </div>
 
           </div>
@@ -349,7 +349,7 @@
                   />
                 </div>
               </h4>
-              
+
               <div>
                 <h4
                   :class="{
@@ -406,7 +406,7 @@
 
 
             <div :style="`font-size: 2vh; line-height: 4.4vh;`" class="wp-80 q-mt-xl">
-              <div class="step-father"  
+              <div class="step-father"
                     v-for="(key,index) in ['one','two', 'three', 'four', 'five', 'six']"
                     :key="key"
                   >
@@ -421,7 +421,7 @@
                   v-text="$t(`VankCard.stepperInvididuals.${key}`)"
                 />
               </div>
-              
+
             </div>
 
           </div>
@@ -438,9 +438,9 @@
       <div style="position: relative; bottom:-100px">
         <variant-contact-us></variant-contact-us>
       </div>
-      
+
     </div>
-    
+
   </q-page>
 </template>
 
