@@ -6,7 +6,7 @@ export default {
   andSave: 'and save with',
   multiplyProfits: 'Multiply your profits with Vank! Open a teen dollar account and discover how our crypto wallets allow you to diversify your investments and maximize your profits.',
   allYour: "All your family's",
-  financesIn:'finances in order',
+  financesIn:'finances, in order',
   saveAsAFamily: 'Save as a family and prepare for the future of Vank! Open a teen dollar account and discover how our crypto wallets allow you to save and invest in digital assets with security and ease. With Vank, you can get the whole family involved on the path to a strong financial future full of opportunity - start building your financial legacy today!',
   panels: {
     one: 'With the Visa prepaid card for kids at VANK, your children can learn to manage their money while enjoying the freedom and security of Visa.',

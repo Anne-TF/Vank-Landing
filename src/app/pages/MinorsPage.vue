@@ -67,6 +67,82 @@
 
     </div>
 
+    <div class="row bg-white flex justify-center pt-100 pb-100">
+      <div class="col-4 flex justify-center items-center">
+        <div :class="{ 'flex justify-center': $q.screen.lt.md }" style="height: fit-content;">
+          <div
+            :class="{ 'flex justify-center': $q.screen.lt.md }"
+            :style="`${$q.screen.gt.sm ? 'height: 18vh;' : ''}`"
+          >
+            <p
+              class="no-margin lh-40 text-vk-grey"
+              :class="{
+                'fs-26': $q.screen.gt.sm,
+                'fs-22 text-center': $q.screen.lt.md
+              }"
+              v-html="$t('Minor.putYourFinances')"
+            >
+              
+            </p>
+            <h3
+              :class="{
+                'fs-25 wp-100 lh-20 text-center': $q.screen.lt.md,
+                'lh-50': $q.screen.gt.sm
+              }"
+              class="no-margin"
+            >
+              {{ $t('Minor.andSave') }} <br v-if="$q.screen.gt.sm" />
+            </h3>
+            <q-icon
+              name="img:icons/vank-line.svg"
+              :class="{ 'q-mt-sm': $q.screen.lt.md }"
+              :style="`width: ${
+                $q.screen.gt.sm ? '22vh' : '11em'
+              }; height: 10vh; ${
+                $q.screen.gt.sm ? 'top: -0px; margin-left: 5em;' : ''
+              }`"
+            />
+          </div>
+
+          <p
+            class="text-vk-grey"
+            :class="{
+              'fs-20 mt-20': $q.screen.gt.sm,
+              'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+            }"
+            v-text="$t('Minor.multiplyProfits')"
+          />
+
+          <div
+            :class="{
+              'wp-100 flex flex-inline justify-center ': $q.screen.lt.md,
+              '': $q.screen.gt.sm
+            }"
+          >
+            <q-btn
+              no-caps
+              class="text-black "
+              rounded
+              unelevated
+              color="vk-secondary"
+              href="http://novapro.io:9000/#/sign-up"
+              style="height: 35px; font-weight: bold; padding:  0px 50px;"
+              :label="$t('Home.navbar.signUp')"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <q-img
+            width="100%"
+            class="fadeInImg"
+            key="natural"
+            src="../../assets/images/vankcard-1.webp"
+          />
+      </div>
+    </div>
+
+
     <!-- MARQUEE SECTION --->
 
     <div
@@ -80,6 +156,135 @@
         <marquee-vank-component class=""/>
       </div>
     </div>
+
+    <!-- FINANCES SECTION --->
+
+    <div class=" flex flex-center q-pb-xl" style="min-height: 600px;">
+      <div
+        :class="{
+          'wp-70': $q.screen.gt.md,
+          'wp-80': $q.screen.lt.lg && $q.screen.gt.sm,
+          'wp-100': $q.screen.lt.md,
+          'mt-100': $q.screen.gt.sm,
+          'q-mt-xl q-px-md': $q.screen.lt.md
+        }"
+      >
+        <h3
+          :class="{
+            'fs-25 lh-30': $q.screen.lt.md
+          }"
+          class="q-mb-none text-center"
+          v-html="$t('Minor.allYour')"
+        />
+        <div class="wp-100 flex justify-center">
+          <q-icon
+            name="img:icons/yellow-line.svg"
+            :style="`
+            position: absolute;
+            width: ${
+              $q.screen.gt.sm
+                ? `${((locale as readonly string[])).includes('es') ? '22em' : '23em'}`
+                : `${((locale as readonly string[])).includes('es') ? '14em' : '11em'}`
+            };
+            margin-top:-10px;
+            margin-left:${((locale as readonly string[])).includes('es') ? '160px' : '100px'}
+            `"
+          />
+        </div>
+        <h3
+          :class="{
+            'fs-25 lh-30': $q.screen.lt.md,
+            'lh-60': $q.screen.gt.sm
+          }"
+          class="text-center q-mb-xl q-mt-none"
+          v-html="$t('Minor.financesIn')"
+        />
+        <div class="wp-100 flex justify-center"
+          :class="{
+              'fs-15 lh-20': $q.screen.lt.md,
+              'fs-18 lh-30': $q.screen.gt.sm
+            }">
+          <p v-html="$t('Minor.saveAsAFamily')" class="text-center text-vk-grey" style="max-width:1000px"/>
+        </div>
+      </div>
+
+      <div class="row q-mt-xl q-mb-lx q-pb-xl" style="max-width: 1200px;width: 100%;">
+        <div class="col-4 q-pa-md">
+          <div class="div-minors-cols-1">
+            <div class="q-pa-xl mt-140">
+              <h5
+                :class="{
+                  'fs-25 lh-30': $q.screen.lt.md
+                }"
+                class="q-mb-none text-center text-vk-secondary"
+                v-html="'Lorem Ipsum'"
+              />
+              <p
+                class="q-mb-none text-center text-white lh-26"
+                v-html="$t('Minor.panels.one')"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-8 ">
+          <div class="row">
+            <div class="col-6 q-pa-md">
+              <div class="div-minors-cols-2">
+                <div class="q-pa-xl ">
+                  <h5
+                    :class="{
+                      'fs-25 lh-30': $q.screen.lt.md
+                    }"
+                    class="q-mb-none text-center text-vk-secondary"
+                    v-html="'Lorem Ipsum'"
+                  />
+                  <p
+                    class="q-mb-none text-center text-white lh-26"
+                    v-html="$t('Minor.panels.two')"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 q-pa-md">
+              <div class="div-minors-cols-3">
+                <div class="q-pa-xl mt-40">
+                  <h5
+                    :class="{
+                      'fs-25 lh-30': $q.screen.lt.md
+                    }"
+                    class="q-mb-none text-center text-vk-secondary"
+                    v-html="'Lorem Ipsum'"
+                  />
+                  <p
+                    class="q-mb-none text-center text-white lh-26"
+                    v-html="$t('Minor.panels.three')"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-12 q-pa-md">
+              <div class="div-minors-cols-4">
+                <div class="q-pa-xl" style="max-width: 600px;">
+                  <h5
+                    :class="{
+                      'fs-25 lh-30': $q.screen.lt.md
+                    }"
+                    class="q-mb-none text-center text-vk-secondary"
+                    v-html="'Lorem Ipsum'"
+                  />
+                  <p
+                    class="q-mb-none mt-20 text-center text-white lh-30"
+                    v-html="$t('Minor.panels.four')"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
 
     <!-- CONDITIONS SECTION --->
 
@@ -155,7 +360,7 @@
                 ? `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
                 : `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
               };
-              margin-top: ${((locale as readonly string[])).includes('es') ? '-60px' : '-55px'};`"
+              margin-top: ${((locale as readonly string[])).includes('es') ? '-40px' : '-35px'};`"
             />
           </div>
           <h4
@@ -341,6 +546,62 @@ const { locale } = useI18n({ useScope: 'global' });
     .img-vank-card-hand{
       max-width: 50%;
     }
+  }
+
+  .div-minors-cols-1{
+    background: url("../../assets/images/vankcard-sec.webp");
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-origin: content-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .div-minors-cols-2{
+    background: url("../../assets/images/vankcard-sec2.webp");
+    aspect-ratio: 1;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-origin: content-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .div-minors-cols-3{
+    background: url("../../assets/images/vankcard-sec3.webp");
+    width: 100%;
+    aspect-ratio: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-origin: content-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .div-minors-cols-4{
+    background: url("../../assets/images/vankcard-sec4.webp");
+    width: 100%;
+    aspect-ratio: 2;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-origin: content-box;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 </style>
