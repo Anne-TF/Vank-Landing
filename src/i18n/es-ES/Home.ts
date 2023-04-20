@@ -10,6 +10,7 @@ export default {
     'contact': 'Contacto',
     'login': 'Iniciar sesión',
     'signUp': 'Regístrate',
+    'signUpNow': 'Regístrate ahora',
     '/': 'Inicio'
   },
   thisIsNoBank: 'Esto no es un banco,',

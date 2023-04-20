@@ -82,7 +82,7 @@
               }"
               v-html="$t('Minor.putYourFinances')"
             >
-              
+
             </p>
             <h3
               :class="{
@@ -284,7 +284,6 @@
       </div>
     </div>
 
-   
 
     <!-- CONDITIONS SECTION --->
 
@@ -307,7 +306,7 @@
         style="align-self: center;"
         class="flex justify-start items-center q-mt-md hp-100"
       >
-        
+
         <div :style="`font-size: 2vh; line-height: 6vh;`" class="wp-80 ">
           <div class="flex">
           <h4
@@ -408,7 +407,7 @@
         </div>
 
       </div>
-    
+
     </div>
 
 
@@ -433,7 +432,7 @@
                     `"
                     />
                 </div>
-                
+
             </div>
             <h1
               :class="{
