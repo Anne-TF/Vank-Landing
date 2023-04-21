@@ -187,7 +187,10 @@
             </q-form>
             <q-icon
               name="img:icons/vank-card.svg"
-              style="position: absolute; z-index: 1;right: -60px;bottom: -60px; width: 20vh; height: 16vh"
+              :style="`
+                ${ $q.screen.gt.sm ? 'position: absolute; z-index: 1;right: -60px;bottom: -60px; width: 20vh; height: 16vh' : ''}
+                ${ $q.screen.lt.md ? 'position: absolute; z-index: 1;right: -45px;bottom: -45px; width: 15vh; height: 10vh' : ''}
+              `"
             />
           </q-card-section>
         </q-card>

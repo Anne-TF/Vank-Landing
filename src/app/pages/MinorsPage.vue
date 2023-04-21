@@ -9,7 +9,11 @@
       <!-- NAVBAR FOR DESKTOP -->
       <navbar-component :dark="true" class="q-mb-xl" />
       <!-- UNLIMITED MOBILE/DESKTOP -->
-      <div class="flex flex-start q-mt-xl" style="padding-left: 170px;padding-top: 180px;">
+      <div class="flex flex-start q-mt-xl" style="padding-top: 180px;"
+        :class="{
+            'ml-30': $q.screen.lt.md,
+            'ml-170': $q.screen.gt.sm
+        }">
 
         <div>
           <div style="display: flex; align-items: center;">

@@ -6,7 +6,13 @@
       <!-- NAVBAR FOR DESKTOP -->
       <navbar-component :dark="true" class="q-mb-xl" />
       <!-- UNLIMITED MOBILE/DESKTOP -->
-      <div class="flex flex-start q-mt-xl" style="padding-left: 170px;padding-top: 180px;">
+      <div 
+        class="flex flex-start q-mt-xl" 
+        :class="{
+            'ml-30': $q.screen.lt.md,
+            'ml-170': $q.screen.gt.sm
+        }"
+        style="padding-top: 180px;">
 
         <div>
           <div style="display: flex; align-items: center;">
@@ -67,10 +73,10 @@
     <!-- SECOND SECTION --->
 
     <div class="row  flex justify-center pt-100 pb-100">
-      <div class="col-5 col-lg-4 flex justify-center items-center">
-        <div :class="{ 'flex justify-center': $q.screen.lt.md }" style="height: fit-content;">
+      <div class="col-11 col-md-5 col-lg-4 flex justify-center items-center">
+        <div  style="height: fit-content;">
           <div
-            :class="{ 'flex justify-center': $q.screen.lt.md }"
+            
             :style="`${$q.screen.gt.sm ? '' : ''}`"
             class="mb-30"
           >
@@ -103,11 +109,11 @@
 
         </div>
       </div>
-      <div class="col-6 col-lg-5" style="position: relative;">
+      <div class="col-11 col-sm-8 col-md-6 col-lg-5" style="position: relative;">
         <q-img
             width="100%"
             class="fadeInImg"
-            style="position: absolute;margin-top: -80px; right: -40px;max-width: 600px;"
+            :style="`${$q.screen.gt.sm ? 'position: absolute;margin-top: -80px; right: -40px;max-width: 600px' : ''}`"
             key="natural"
             src="../../assets/images/phone-persons.webp"
           />
@@ -140,7 +146,7 @@
             width: ${
               $q.screen.gt.sm
                 ? `${((locale as readonly string[])).includes('es') ? '25em' : '32em'}`
-                : `${((locale as readonly string[])).includes('es') ? '14em' : '11em'}`
+                : `${((locale as readonly string[])).includes('es') ? '16em' : '16em'}`
             };
             margin-top:-0px`"
           />
@@ -153,7 +159,13 @@
           <p v-html="$t('People.receivePaymentsP')" class="text-center text-vk-grey" style="max-width:1000px"/>
         </div>
 
-        <div class="wp-100 flex justify-between q-mt-xl q-pt-xl q-pb-xl" style="max-width: 1200px;width: 100%;" >
+        <div 
+          class="wp-100 flex justify-between items-center q-mt-xl q-pt-xl q-pb-xl" 
+          style="max-width: 1200px;width: 100%;"
+          :class="{
+            'column': $q.screen.lt.sm
+            }" 
+          >
           <div class="receive-payments-1 bg-vk-secondary">
             <q-icon
               name="img:icons/hand1.svg"
@@ -202,17 +214,21 @@
             width: ${
               $q.screen.gt.sm
                 ? `${((locale as readonly string[])).includes('es') ? '20em' : '20em'}`
-                : `${((locale as readonly string[])).includes('es') ? '14em' : '11em'}`
+                : `${((locale as readonly string[])).includes('es') ? '11em' : '11em'}`
             };
             margin-top:-10px;
-            margin-right:${((locale as readonly string[])).includes('es') ? '260px' : '260px'}
+            margin-right: ${
+              $q.screen.gt.sm
+                ? `${((locale as readonly string[])).includes('es') ? '260px' : '260px'}`
+                : `${((locale as readonly string[])).includes('es') ? '140px' : '140px'}`
+            };
             `"
           />
       </div>
     </div>
 
       <div class="row q-mt-xl q-mb-lx q-pb-xl" style="max-width: 1200px;width: 100%;">
-        <div class="col-4 q-pa-md">
+        <div class="col-sm-4 col-12 q-pa-md">
           <div class="div-people-cols-1">
             <div class="q-pa-xl mt-100">
               <h5
@@ -225,9 +241,9 @@
             </div>
           </div>
         </div>
-        <div class="col-8 ">
+        <div class="col-sm-8 col-12">
           <div class="row">
-            <div class="col-6 q-pa-md">
+            <div class="col-sm-6 col-12 q-pa-md">
               <div class="div-people-cols-2">
                 <div class="q-pa-xl ">
                   <h5
@@ -240,7 +256,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 q-pa-md">
+            <div class="col-sm-6 col-12 q-pa-md">
               <div class="div-people-cols-3">
                 <div class="q-pa-xl mt-40">
                   <h5
@@ -743,6 +759,25 @@ const { locale } = useI18n({ useScope: 'global' });
     font-size: 30px;
     max-width: 28%;
     width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .receive-payments-1{
+      max-width: 250px;
+      margin-bottom: 40px;
+    }
+    .receive-payments-2{
+      max-width: 250px;
+      margin-bottom: 40px;
+    }
+    .receive-payments-3{
+      max-width: 250px;
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (max-width: 800px) {
+
   }
 
   .father-step-square{

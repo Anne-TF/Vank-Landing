@@ -19,7 +19,7 @@
         />
         <div
           style="z-index: 9"
-          class="flex flex-center q-gutter-x-lg wp-60 pl-108"
+          class="flex flex-center q-gutter-x-lg wp-70 pl-50"
         >
           <span
             v-text="$t('Home.navbar.people')"
