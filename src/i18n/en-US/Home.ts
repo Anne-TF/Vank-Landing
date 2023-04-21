@@ -1,14 +1,17 @@
 export default {
   followUs: 'Follow us in',
   navbar: {
-    people: 'People',
-    business: 'Business',
-    vankCard: 'VankCard',
-    vankVersity: 'VankVersity',
-    company: 'Company',
-    contact: 'Contact',
-    login: 'Log in',
-    signUp: 'Sign up'
+    'people': 'People',
+    'minors': 'Minors',
+    'business': 'Business',
+    'vankcard': 'VankCard',
+    'vankversity': 'VankVersity',
+    'company': 'Company',
+    'contact': 'Contact',
+    'login': 'Log in',
+    'signUp': 'Sign up',
+    'signUpNow': 'Sign up now',
+    '/': 'Home'
   },
   thisIsNoBank: 'This is not a bank,',
   its: 'its',
@@ -66,6 +69,10 @@ export default {
   depositAndEnjoy: 'Recharge \n and enjoy',
   contactUsNow: 'Contact us now',
   sendNow: 'Send now',
+  transactions:'Transactions',
+  foreignTrade: 'in Foreign Trade',
+  inPayments: 'in payments',
+  countries: 'countries',
   footer: {
     people: {
       title: 'People',
@@ -95,7 +102,16 @@ export default {
       transfer: 'Sign up',
       card: 'Contact'
     },
+    contactWithUs: {
+      title: 'Contact with us',
+      email:'contact@vankweb.com',
+      number: '+(57) 322 478 1323',
+      address: '123rd Street to #88-90 for 123',
+      web: 'www.vank.com'
+    },
+    followUs:'Follow us on social networks',
     subscribe: 'Subscription to newsletter',
-    subscribeNow: 'Subscribe now'
+    subscribeNow: 'Subscribe now',
+    downloadOurApp: 'Download our App'
   }
 };
