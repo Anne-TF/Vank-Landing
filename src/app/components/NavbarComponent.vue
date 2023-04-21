@@ -33,12 +33,13 @@
             :class="!dark ? 'text-black' : 'text-white'"
             @click="$router.push('/minors')"
           />
+          <!--
           <span
             v-text="$t('Home.navbar.business')"
             style="cursor: pointer"
             :class="!dark ? 'text-black' : 'text-white'"
             @click="$router.push('/')"
-          />
+          />-->
           <span
             v-text="$t('Home.navbar.vankcard')"
             style="cursor: pointer"

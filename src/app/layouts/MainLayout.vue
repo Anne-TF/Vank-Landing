@@ -100,7 +100,7 @@
             'fs-14': $q.screen.gt.sm,
             'fs-12 q-pb-xs': $q.screen.lt.md,
           }"
-          v-for="(key) in ['/','people', 'minors', 'business', 'vankcard', 'vankversity', 'company', 'contact']"
+          v-for="(key) in ['/','people', 'minors', /*'business',*/ 'vankcard', 'vankversity', 'company', 'contact']"
           :key="key"
           class="no-margin"
           @click="$router.push(key)"
@@ -279,7 +279,7 @@
               '/',
               'people',
               'minors',
-              'business',
+              /*'business',*/
               'vankcard',
               'vankversity',
               'company',
