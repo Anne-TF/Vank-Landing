@@ -508,7 +508,7 @@ const tab = ref<'individuals' | 'companies' >('individuals');
   .step-father{
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     padding-bottom: 30px;
     position: relative;
   }

@@ -290,12 +290,12 @@
      <!-- TRANSFERS SECTION --->
 
     <div class="row bg-black  flex justify-around pt-20 pb-20 ">
-      <div class="col-4  flex justify-center items-center">
+      <div class="col-md-4  col-10 flex justify-center items-center">
         <div class="div-bg-hand flex justify-start items-center">
           <div>
             <div
               :class="{
-                'q-mt-xl q-px-md': $q.screen.lt.md
+                '': $q.screen.lt.md
               }"
             >
               <h3
@@ -313,7 +313,7 @@
                   width: ${
                     $q.screen.gt.sm
                       ? `${((locale as readonly string[])).includes('es') ? '18em' : '14em'}`
-                      : `${((locale as readonly string[])).includes('es') ? '14em' : '11em'}`
+                      : `${((locale as readonly string[])).includes('es') ? '10em' : '8em'}`
                   };
                   margin-top:${((locale as readonly string[])).includes('es') ? '-3px' : '-3px'}
                   `"
@@ -325,15 +325,15 @@
               class="text-white"
               :class="{
                 'fs-20 mt-20': $q.screen.gt.sm,
-                'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                'fs-18 wp-100 q-mt-sm': $q.screen.lt.md
               }"
               v-text="$t('People.transferP')"
             />
           </div>
         </div>
       </div>
-      <div class="col-6 row">
-        <div class="col-6 q-pa-lg">
+      <div class="col-md-6 col-12 row">
+        <div class="col-sm-6 col-12  q-pa-lg">
           <div class="bg-white text-black q-pa-lg" style="border-radius: 10px;">
               <q-icon
                 name="img:icons/pig-black.svg"
@@ -363,7 +363,7 @@
               />
           </div>
         </div>
-        <div class="col-6 q-pa-lg">
+        <div class="col-sm-6 col-12 q-pa-lg">
           <div class="bg-black text-white q-pa-lg" style="border-radius: 10px;">
               <q-icon
                 name="img:icons/coin-white.svg"
@@ -393,7 +393,7 @@
               />
           </div>
         </div>
-        <div class="col-6 q-pa-lg">
+        <div class="col-sm-6 col-12  q-pa-lg">
           <div class="bg-black text-white q-pa-lg" style="border-radius: 10px;">
               <q-icon
                 name="img:icons/chat-white.svg"
@@ -423,7 +423,7 @@
               />
           </div>
         </div>
-        <div class="col-6 q-pa-lg">
+        <div class="col-sm-6 col-12 q-pa-lg">
           <div class="bg-black text-white q-pa-lg" style="border-radius: 10px;">
               <q-icon
                 name="img:icons/card-white.svg"
@@ -460,7 +460,7 @@
     <!-- CARD SECTION -->
 
     <div class="row bg-white flex justify-center pt-20 pb-100">
-      <div class="col-6 flex justify-start">
+      <div class="col-md-6 col-10 flex justify-start">
         <q-img
             width="90%"
             class="fadeInImg"
@@ -468,11 +468,11 @@
             src="../../assets/images/card-persons.webp"
           />
       </div>
-      <div class="col-4 flex justify-center items-center">
-        <div :class="{ 'flex justify-center': $q.screen.lt.md }" class="q-mb-xl" style="height: fit-content;">
+      <div class="col-md-4 col-8 flex justify-center items-center">
+        <div class="q-mb-xl" style="height: fit-content;">
           <div
               :class="{
-                'q-mt-xl q-px-md': $q.screen.lt.md
+                'q-mt-xl': $q.screen.lt.md
               }"
             >
               <h3
@@ -490,7 +490,7 @@
                   width: ${
                     $q.screen.gt.sm
                       ? `${((locale as readonly string[])).includes('es') ? '10em' : '10em'}`
-                      : `${((locale as readonly string[])).includes('es') ? '14em' : '11em'}`
+                      : `${((locale as readonly string[])).includes('es') ? '8em' : '6em'}`
                   };
                   margin-top:${((locale as readonly string[])).includes('es') ? '-3px' : '-3px'}
                   `"
@@ -502,14 +502,14 @@
             class="text-vk-grey"
             :class="{
               'fs-20 mt-20': $q.screen.gt.sm,
-              'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+              'fs-18 wp-100 q-mt-sm': $q.screen.lt.md
             }"
             v-text="$t('People.card.p')"
           />
 
           <div
             :class="{
-              'wp-100 flex flex-inline justify-center ': $q.screen.lt.md,
+
               '': $q.screen.gt.sm
             }"
           >
@@ -538,7 +538,13 @@
 
      <div class="wp-100 flex justify-center bg-white" style="position: relative;">
       <div class="banner-people flex justify-end items-center">
-        <div style="min-width: 45%; max-width: 45%;" class="q-pb-md">
+        <div 
+          style="min-width: 45%; " 
+          :style="`
+            min-width: ${ $q.screen.gt.xs ? '45%' : '100%'};
+            max-width: ${ $q.screen.gt.xs ? '45%' : '100%'};
+            `" 
+          class="q-pb-md">
           <p
             class="text-vk-grey no-margin"
             :class="{
@@ -572,7 +578,7 @@
             width: ${
               $q.screen.gt.sm
                 ? `${((locale as readonly string[])).includes('es') ? '22em' : '22em'}`
-                : `${((locale as readonly string[])).includes('es') ? '10em' : '10em'}`
+                : `${((locale as readonly string[])).includes('es') ? '12em' : '9em'}`
             };
             height: ${
               $q.screen.gt.sm
@@ -584,8 +590,16 @@
               ? `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
               : `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
             };
-            margin-top: ${((locale as readonly string[])).includes('es') ? '-25px' : '-25px'};
-            margin-left:${((locale as readonly string[])).includes('es') ? '130px' : '70px'}`"
+            margin-top:  ${
+              $q.screen.gt.sm
+              ? `${((locale as readonly string[])).includes('es') ? '-25px' : '-25px'}`
+              : `${((locale as readonly string[])).includes('es') ? '-10px' : '-10px'}`
+            };
+            margin-left:  ${
+              $q.screen.gt.sm
+              ? `${((locale as readonly string[])).includes('es') ? '130px' : '70px'}`
+              : `${((locale as readonly string[])).includes('es') ? '58px' : '70px'}`
+            };`"
           />
           <h4
             :class="{
@@ -705,6 +719,20 @@ const { locale } = useI18n({ useScope: 'global' });
     position: relative;
     z-index: 1;
     box-shadow: 14px 15px 15px -4px rgba(0,0,0,0.3);
+  }
+
+  @media (max-width: 800px) {
+    .banner-people{
+      width: calc(100% - 50px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .banner-people{
+      background:  #ffffff;
+      padding: 15px;
+      aspect-ratio: none;
+    }
   }
 
   .receive-payments-1{

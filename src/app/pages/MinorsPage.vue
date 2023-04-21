@@ -72,7 +72,7 @@
     </div>
 
     <div class="row bg-white flex justify-center pt-100 pb-100">
-      <div class="col-4 flex justify-center items-center">
+      <div class="col-md-4 col-sm-9 col-12 flex justify-center items-center" :class="{ 'pb-80': $q.screen.lt.md }">
         <div :class="{ 'flex justify-center': $q.screen.lt.md }" style="height: fit-content;">
           <div
             :class="{ 'flex justify-center': $q.screen.lt.md }"
@@ -136,7 +136,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-md-6 col-sm-10 col-11">
         <q-img
             width="100%"
             class="fadeInImg"
@@ -188,11 +188,14 @@
             width: ${
               $q.screen.gt.sm
                 ? `${((locale as readonly string[])).includes('es') ? '22em' : '23em'}`
-                : `${((locale as readonly string[])).includes('es') ? '14em' : '11em'}`
+                : `${((locale as readonly string[])).includes('es') ? '11em' : '11em'}`
             };
             margin-top:-10px;
-            margin-left:${((locale as readonly string[])).includes('es') ? '160px' : '100px'}
-            `"
+            margin-left:${
+              $q.screen.gt.sm
+                ? `${((locale as readonly string[])).includes('es') ? '160px' : '100px'}`
+                : `${((locale as readonly string[])).includes('es') ? '90px' : '50px'}`
+            }`"
           />
         </div>
         <h3
@@ -213,9 +216,14 @@
       </div>
 
       <div class="row q-mt-xl q-mb-lx q-pb-xl" style="max-width: 1200px;width: 100%;">
-        <div class="col-4 q-pa-md">
+        <div class="col-md-4 col-12 q-pa-md">
           <div class="div-minors-cols-1">
-            <div class="q-pa-xl mt-140">
+            <div class="q-pa-xl "
+              :class="{
+                'mt-140': $q.screen.gt.sm,
+                'mt-180': $q.screen.lt.md
+              }"
+            >
               <h5
                 :class="{
                   'fs-25 lh-30': $q.screen.lt.md
@@ -230,11 +238,14 @@
             </div>
           </div>
         </div>
-        <div class="col-8 ">
+        <div class="col-md-8 col-12">
           <div class="row">
-            <div class="col-6 q-pa-md">
+            <div class="col-md-6 col-12 q-pa-md">
               <div class="div-minors-cols-2">
-                <div class="q-pa-xl ">
+                <div class="q-pa-xl "
+                :class="{
+                  'mt-80': $q.screen.lt.md
+                }">
                   <h5
                     :class="{
                       'fs-25 lh-30': $q.screen.lt.md
@@ -249,9 +260,13 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 q-pa-md">
+            <div class="col-md-6 col-12 q-pa-md">
               <div class="div-minors-cols-3">
-                <div class="q-pa-xl mt-40">
+                <div class="q-pa-xl mt-40"
+                :class="{
+                  'mt-40': $q.screen.gt.sm,
+                  'mt-100': $q.screen.lt.md
+                }">
                   <h5
                     :class="{
                       'fs-25 lh-30': $q.screen.lt.md
@@ -431,8 +446,16 @@
                     <q-icon
                     name="img:icons/yellow-bar-contact.svg"
                     :style="`
-                    width: 24em;
-                    height: 1em;
+                    width: ${
+                      $q.screen.gt.sm
+                        ? `${((locale as readonly string[])).includes('es') ? '24em' : '24em'}`
+                        : `${((locale as readonly string[])).includes('es') ? '18em' : '15em'}`
+                    };
+                    height: ${
+                      $q.screen.gt.sm
+                        ? `${((locale as readonly string[])).includes('es') ? '1em' : '1em'}`
+                        : `${((locale as readonly string[])).includes('es') ? '1em' : '1em'}`
+                    };
                     `"
                     />
                 </div>
@@ -484,6 +507,12 @@ const { locale } = useI18n({ useScope: 'global' });
     min-height: 350px;
   }
 
+  @media (max-width: 1025px) { 
+    .bg-unleash{
+      min-height: 150px;
+    }
+  }
+
   .circle-black{
     width: 50px;
     height: 50px;
@@ -523,7 +552,7 @@ const { locale } = useI18n({ useScope: 'global' });
   .step-father{
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     padding-bottom: 30px;
     position: relative;
   }
