@@ -72,7 +72,7 @@
     <!-- SECOND SECTION --->
 
     <div class="row bg-white flex justify-center pt-30 pb-30">
-      <div class="col-6 flex justify-center">
+      <div class="col-10 col-md-6 flex justify-center">
         <q-img
             width="70%"
             class="fadeInImg"
@@ -80,11 +80,11 @@
             src="../../assets/images/1-image-vankversity.webp"
           />
       </div>
-      <div class="col-5 flex justify-center items-center">
+      <div class="col-10 col-md-5 flex justify-center items-center">
         <div :class="{ 'flex justify-center': $q.screen.lt.md }" style="height: fit-content;">
           <div
             :class="{ 'flex justify-center': $q.screen.lt.md }"
-            class="mb-15"
+            class="mb-15 mt-20"
           >
             <h2
               :class="{
@@ -114,7 +114,11 @@
                 ? `0vw`
                 : `0vw`
               };
-              margin-top: -8px;`"
+              margin-top: ${
+                $q.screen.gt.sm
+                ? `-8px`
+                : `25px`
+              };`"
             />
           </div>
 
@@ -122,12 +126,13 @@
             class="text-vk-grey text-justify"
             :class="{
               'fs-20 mt-20 lh-35': $q.screen.gt.sm,
-              'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
             }"
             v-text="$t('VankVersity.itIs')"
           />
 
-          <div class="flex justify-between mt-50" style="position: relative;">
+          <div class="flex justify-between mt-50" :class="{
+            'column': $q.screen.lt.sm
+            }"  style="position: relative;">
             <div class="box-svg-black">
               <q-icon
                 name="img:icons/versity-cards-one.svg"
@@ -212,24 +217,24 @@
           class="flex items-center"
         >
           <q-img
-            width="40vh"
-            height="51vh"
+            :width="$q.screen.gt.sm ? '40vh' : '22vh'"
+            :height="$q.screen.gt.sm ? '51vh' : '30vh'"
             v-if="tab === 'target'"
             class="fadeInImg"
             key="individuals"
             src="../../assets/images/tabs-vankversity.webp"
           />
           <q-img
-            width="40vh"
-            height="51vh"
+            :width="$q.screen.gt.sm ? '40vh' : '22vh'"
+            :height="$q.screen.gt.sm ? '51vh' : '30vh'"
             v-if="tab === 'information'"
             class="fadeInImg"
             key="companies"
             src="../../assets/images/tabs-vankversity.webp"
           />
           <q-img
-            width="40vh"
-            height="51vh"
+            :width="$q.screen.gt.sm ? '40vh' : '22vh'"
+            :height="$q.screen.gt.sm ? '51vh' : '30vh'"
             v-if="tab === 'service'"
             class="fadeInImg"
             key="companies"
@@ -246,7 +251,11 @@
             class="flex flex-inline q-mt-md fadeInText"
           >
             <div class="flex">
-              <div>
+              <div
+                :class="{
+                    '': $q.screen.gt.sm,
+                    'q-pa-md': $q.screen.lt.md
+                  }">
                 <h4
                   :class="{
                     'fs-25 lh-30': $q.screen.lt.md,
@@ -275,13 +284,17 @@
                     ? `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
                     : `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
                   };
-                  margin-top: ${((locale as readonly string[])).includes('es') ? '-30px' : '-25px'};`"
+                  margin-top:${
+                    $q.screen.gt.sm
+                    ? `${((locale as readonly string[])).includes('es') ? '-30px' : '-25px'}`
+                    : `${((locale as readonly string[])).includes('es') ? '-5px' : '-5px'}`
+                  };`"
                 />
                 <p
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetOne')"
                 />
@@ -289,7 +302,7 @@
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetTwo')"
                 />
@@ -297,7 +310,7 @@
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetThree')"
                 />
@@ -315,8 +328,12 @@
             }"
             class="flex flex-inline q-mt-md fadeInText"
           >
-            <div class="flex">
-              <div>
+          <div class="flex">
+              <div
+                :class="{
+                    '': $q.screen.gt.sm,
+                    'q-pa-md': $q.screen.lt.md
+                  }">
                 <h4
                   :class="{
                     'fs-25 lh-30': $q.screen.lt.md,
@@ -324,7 +341,7 @@
                   }"
                   class="no-margin  text-vk-black"
                   style=""
-                  v-html="$t('VankVersity.information')"
+                  v-html="$t('VankVersity.target')"
                 />
                 <q-icon
                   name="img:icons/thin-yellow-line.svg"
@@ -332,7 +349,7 @@
                   position: absolute;
                   width: ${
                     $q.screen.gt.sm
-                      ? `${((locale as readonly string[])).includes('es') ? '15.5em' : '15em'}`
+                      ? `${((locale as readonly string[])).includes('es') ? '15.5em' : '13em'}`
                       : `${((locale as readonly string[])).includes('es') ? '10em' : '10em'}`
                   };
                   height: ${
@@ -345,13 +362,17 @@
                     ? `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
                     : `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
                   };
-                  margin-top: ${((locale as readonly string[])).includes('es') ? '-30px' : '-30px'};`"
+                  margin-top:${
+                    $q.screen.gt.sm
+                    ? `${((locale as readonly string[])).includes('es') ? '-30px' : '-25px'}`
+                    : `${((locale as readonly string[])).includes('es') ? '-5px' : '-5px'}`
+                  };`"
                 />
                 <p
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetOne')"
                 />
@@ -359,7 +380,7 @@
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetTwo')"
                 />
@@ -367,7 +388,7 @@
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetThree')"
                 />
@@ -385,8 +406,12 @@
             }"
             class="flex flex-inline q-mt-md fadeInText"
           >
-            <div class="flex">
-              <div>
+          <div class="flex">
+              <div
+                :class="{
+                    '': $q.screen.gt.sm,
+                    'q-pa-md': $q.screen.lt.md
+                  }">
                 <h4
                   :class="{
                     'fs-25 lh-30': $q.screen.lt.md,
@@ -394,7 +419,7 @@
                   }"
                   class="no-margin  text-vk-black"
                   style=""
-                  v-html="$t('VankVersity.service')"
+                  v-html="$t('VankVersity.target')"
                 />
                 <q-icon
                   name="img:icons/thin-yellow-line.svg"
@@ -402,7 +427,7 @@
                   position: absolute;
                   width: ${
                     $q.screen.gt.sm
-                      ? `${((locale as readonly string[])).includes('es') ? '15.5em' : '15em'}`
+                      ? `${((locale as readonly string[])).includes('es') ? '15.5em' : '13em'}`
                       : `${((locale as readonly string[])).includes('es') ? '10em' : '10em'}`
                   };
                   height: ${
@@ -415,13 +440,17 @@
                     ? `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
                     : `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
                   };
-                  margin-top: ${((locale as readonly string[])).includes('es') ? '-30px' : '-30px'};`"
+                  margin-top:${
+                    $q.screen.gt.sm
+                    ? `${((locale as readonly string[])).includes('es') ? '-30px' : '-25px'}`
+                    : `${((locale as readonly string[])).includes('es') ? '-5px' : '-5px'}`
+                  };`"
                 />
                 <p
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetOne')"
                 />
@@ -429,7 +458,7 @@
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetTwo')"
                 />
@@ -437,7 +466,7 @@
                   class="text-vk-grey text-justify"
                   :class="{
                     'fs-18 mt-20 lh-30': $q.screen.gt.sm,
-                    'fs-18 wp-50 q-mt-sm': $q.screen.lt.md
+                    'fs-18 q-mt-sm': $q.screen.lt.md
                   }"
                   v-html="$t('VankVersity.targetThree')"
                 />
@@ -451,9 +480,18 @@
 
     <!-- FOURTH SECTION -->
 
-    <div class="q-pa-xl flex flex-center bg-white">
-      <div class="flex flex-center q-pa-xl" style="max-width: 1400px;">
-        <div class="wp-45">
+    <div class=" flex flex-center bg-white"
+        :class="{
+              'q-pa-xl': $q.screen.gt.sm,
+              'q-pa-md': $q.screen.lt.md,
+
+            }"
+    >
+      <div class="flex flex-center row " :class="{
+              'q-pa-xl': $q.screen.gt.sm,
+
+            }" style="max-width: 1400px;">
+        <div class="col-12 col-md-6  ">
           <p
             :class="{
               'fs-20 lh-30': $q.screen.lt.md,
@@ -477,9 +515,9 @@
               <span v-text="'ankVersity'" /> <br />
               <q-icon
                 name="img:icons/v.svg"
-                :size="$q.screen.gt.sm ? '48px' : '41px'"
+                :size="$q.screen.gt.sm ? '48px' : '25px'"
                 :style="`position: absolute; margin-top: ${
-                  $q.screen.gt.sm ? '-68px' : '-68px'
+                  $q.screen.gt.sm ? '-68px' : '-30px'
                 }; margin-left: ${((locale as readonly string[])).includes('es') ? '-0.1em' : '-0.1em'};`"
               />
             </div>
@@ -506,7 +544,9 @@
           />
 
         </div>
-        <div class="wp-55 flex flex-center q-pa-md">
+        <div class="col-12 col-md-6 flex flex-center" :class="{
+              'q-pa-md': $q.screen.gt.sm,
+            }">
           <q-img
             width="100%"
             class="fadeInImg"
@@ -523,7 +563,10 @@
     <div class="wp-100 flex justify-center bg-white" style="position: relative;">
       <div class="bg-vk-secondary div-yellow"></div>
       <div class="banner-vankversity flex justify-end items-center">
-        <div style="min-width: 45%; max-width: 50%;">
+        <div  :style="`
+            min-width: ${ $q.screen.gt.xs ? '45%' : '100%'};
+            max-width: ${ $q.screen.gt.xs ? '50%' : '100%'};
+            `" >
           <h4
             :class="{
               'fs-25 lh-30': $q.screen.lt.md,
@@ -549,7 +592,7 @@
             width: ${
               $q.screen.gt.sm
                 ? `${((locale as readonly string[])).includes('es') ? '22em' : '22em'}`
-                : `${((locale as readonly string[])).includes('es') ? '10em' : '10em'}`
+                : `${((locale as readonly string[])).includes('es') ? '12em' : '12em'}`
             };
             height: ${
               $q.screen.gt.sm
@@ -561,7 +604,12 @@
               ? `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
               : `${((locale as readonly string[])).includes('es') ? '0vw' : '0vw'}`
             };
-            margin-top: ${((locale as readonly string[])).includes('es') ? '-25px' : '-25px'};`"
+            margin-top: ${
+              $q.screen.gt.sm
+              ? `${((locale as readonly string[])).includes('es') ? '-25px' : '-25px'}`
+              : `${((locale as readonly string[])).includes('es') ? '-10px' : '-10px'}`
+            };
+            `"
           />
           <p
             :class="{
@@ -569,7 +617,10 @@
               'fs-18 lh-30': $q.screen.gt.sm
             }"
             class="text-justify text-white q-mt-lg "
-            style="font-weight: 400 !important;max-width: 70%;"
+            style="font-weight: 400 !important;"
+            :style="`
+            max-width: ${ $q.screen.gt.xs ? '70%' : '100%'};
+            `"
             v-html="'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh'"
           />
           <div>
@@ -581,6 +632,9 @@
               color="vk-secondary"
               href="http://novapro.io:9000/#/sign-up"
               style="height: 35px; font-weight: bold; padding:  0px 50px;"
+              :style="`
+              padding: ${ $q.screen.gt.xs ? '  0px 50px' : '  0px 30px'};
+              `"
               :label="$t('Home.navbar.signUpNow')"
             />
           </div>
@@ -627,6 +681,7 @@ const tab = ref<'target' | 'information' | 'service' >('target');
     font-weight: lighter;
     position: relative;
   }
+
   .box-svg-black span{
     width: 50%;
     height: 40%;
@@ -663,8 +718,22 @@ const tab = ref<'target' | 'information' | 'service' >('target');
     position: relative;
   }
 
+
+  @media (max-width: 600px) {
+    .box-svg-white{
+      max-width: 250px;
+      width: 250px;
+      margin-bottom: 40px;
+    }
+    .box-svg-black{
+      max-width: 250px;
+      width: 250px;
+      margin-bottom: 40px;
+    }
+  }
+
   .banner-vankversity{
-    background: url("../../assets/images/banner-vankversity.webp"), #3a3a3a;
+    background: url("../../assets/images/banner-vankversity.webp"), #000000;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -674,6 +743,25 @@ const tab = ref<'target' | 'information' | 'service' >('target');
     border-radius: 25px;
     position: relative;
     z-index: 1;
+  }
+
+  @media (max-width: 800px) {
+    .banner-vankversity{
+      width: calc(100% - 50px);
+      margin-top: 80px
+
+    }
+    .div-yellow{
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .banner-vankversity{
+      padding: 15px;
+      aspect-ratio: none;
+      height: 400px;
+    }
   }
 
   .div-yellow{

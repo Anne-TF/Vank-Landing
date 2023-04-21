@@ -507,7 +507,7 @@ const { locale } = useI18n({ useScope: 'global' });
     min-height: 350px;
   }
 
-  @media (max-width: 1025px) { 
+  @media (max-width: 1025px) {
     .bg-unleash{
       min-height: 150px;
     }

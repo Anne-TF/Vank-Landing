@@ -188,5 +188,4 @@ const { locale } = useI18n({ useScope: 'global' });
 }
 
 
-
 </style>

@@ -6,8 +6,8 @@
       <!-- NAVBAR FOR DESKTOP -->
       <navbar-component :dark="true" class="q-mb-xl" />
       <!-- UNLIMITED MOBILE/DESKTOP -->
-      <div 
-        class="flex flex-start q-mt-xl" 
+      <div
+        class="flex flex-start q-mt-xl"
         :class="{
             'ml-30': $q.screen.lt.md,
             'ml-170': $q.screen.gt.sm
@@ -76,7 +76,7 @@
       <div class="col-11 col-md-5 col-lg-4 flex justify-center items-center">
         <div  style="height: fit-content;">
           <div
-            
+
             :style="`${$q.screen.gt.sm ? '' : ''}`"
             class="mb-30"
           >
@@ -159,12 +159,12 @@
           <p v-html="$t('People.receivePaymentsP')" class="text-center text-vk-grey" style="max-width:1000px"/>
         </div>
 
-        <div 
-          class="wp-100 flex justify-between items-center q-mt-xl q-pt-xl q-pb-xl" 
+        <div
+          class="wp-100 flex justify-between items-center q-mt-xl q-pt-xl q-pb-xl"
           style="max-width: 1200px;width: 100%;"
           :class="{
             'column': $q.screen.lt.sm
-            }" 
+            }"
           >
           <div class="receive-payments-1 bg-vk-secondary">
             <q-icon
@@ -538,12 +538,11 @@
 
      <div class="wp-100 flex justify-center bg-white" style="position: relative;">
       <div class="banner-people flex justify-end items-center">
-        <div 
-          style="min-width: 45%; " 
+        <div
           :style="`
             min-width: ${ $q.screen.gt.xs ? '45%' : '100%'};
             max-width: ${ $q.screen.gt.xs ? '45%' : '100%'};
-            `" 
+            `"
           class="q-pb-md">
           <p
             class="text-vk-grey no-margin"

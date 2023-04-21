@@ -9,8 +9,13 @@
         <!-- NAVBAR FOR DESKTOP -->
         <navbar-component  class="q-mb-xl" />
         <!-- UNLIMITED MOBILE/DESKTOP -->
-        <div class="flex flex-center ">
-          <div>
+        <div class="flex flex-center "
+        :class="{
+            'ml-30 mt-80': $q.screen.lt.md
+        }">
+          <div :class="{
+            'mb-60': $q.screen.lt.md
+        }">
             <p
               :class="{
                 'fs-25 lh-30': $q.screen.lt.md,
@@ -46,7 +51,7 @@
               width: ${
                 $q.screen.gt.sm
                   ? `${((locale as readonly string[])).includes('es') ? '25em' : '25em'}`
-                  : `${((locale as readonly string[])).includes('es') ? '25em' : '25em'}`
+                  : `${((locale as readonly string[])).includes('es') ? '12em' : '10em'}`
               };
               height: ${
                 $q.screen.gt.sm
@@ -82,8 +87,8 @@
             </div>
           </div>
             <q-img
-              height="80vh"
-              width="59vh"
+              :width="$q.screen.gt.sm ? '59vh' : '30vh'"
+              :height="$q.screen.gt.sm ? '80vh' : '40vh'"
 
               style="position: relative; z-index: 1;"
               src="../../assets/images/contact.webp"

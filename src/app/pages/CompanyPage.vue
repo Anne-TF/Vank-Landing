@@ -23,7 +23,7 @@
           />
           <h1
             :class="{
-              'fs-25 lh-30': $q.screen.lt.md,
+              'fs-50 lh-80': $q.screen.lt.md,
 
             }"
             class="no-margin  text-vk-secondary"
@@ -38,7 +38,7 @@
             width: ${
               $q.screen.gt.sm
                 ? `${((locale as readonly string[])).includes('es') ? '25em' : '25em'}`
-                : `${((locale as readonly string[])).includes('es') ? '25em' : '25em'}`
+                : `${((locale as readonly string[])).includes('es') ? '18em' : '18em'}`
             };
             height: ${
               $q.screen.gt.sm
@@ -85,8 +85,12 @@
     <!-- SECOND SECTION --->
 
     <div class="q-pa-xl flex flex-center">
-      <div class="flex flex-center q-pa-xl" style="max-width: 1200px;">
-        <div class="wp-50">
+      <div class="flex flex-center   row"
+          :class="{
+              'q-pa-xl': $q.screen.gt.sm,
+
+            }"   style="max-width: 1200px;">
+        <div class="col-12 col-md-6 ">
           <h4
             :class="{
               'fs-25 lh-30': $q.screen.lt.md,
@@ -136,23 +140,34 @@
             v-html="$t('Company.ourCompanyText2')"
           />
         </div>
-        <div class="wp-50 flex flex-center q-pa-xl">
+        <div class="col-12 col-md-6  flex flex-center"
+        :class="{
+              'q-pa-xl': $q.screen.gt.sm,
+
+            }"  >
           <q-img
-            height="50vh"
-            width="55vh"
+
+            width="100%"
             :class="{   }"
             src="../../assets/images/company-persons.webp"
           />
         </div>
-        <div class="wp-50">
+        <div class="col-12 col-md-6 ">
           <q-img
-            height="50vh"
-            width="60vh"
-            :class="{   }"
+            :class="{
+              'mt-50': $q.screen.lt.md,
+
+            }"
+            width="100%"
+
             src="../../assets/images/company-computer.webp"
           />
         </div>
-        <div class="wp-50 flex flex-center q-pa-xl">
+        <div class="col-12 col-md-6 flex flex-center "
+        :class="{
+              'q-pa-xl': $q.screen.gt.sm,
+
+            }"  >
 
           <p
             :class="{
