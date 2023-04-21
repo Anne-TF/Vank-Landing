@@ -130,7 +130,11 @@
         />
       </div>
       <div
-        class="col-12 col-sm-6 col-md-3  pl-30 pt-30"
+        class="col-12 col-sm-6 col-md-3   pt-30"
+        :class="{
+          'pl-30': $q.screen.gt.sm,
+
+        }"
       >
         <p
           :class="{
@@ -154,7 +158,7 @@
 
 
       <div
-        class="col-12 col-sm-4  flex justify-center items-start pt-30"
+        class="col-12 col-sm-4 col-md-4  flex justify-center items-start pt-30"
         :class="{ 'q-mt-xl': $q.screen.lt.md }"
       >
         <q-icon name="img:icons/rounded-v-yellow.svg" size="6em" />
@@ -180,24 +184,24 @@
         <div class="wp-100 flex flex-center mb-8 mt-2" v-if="((locale as readonly string[])).includes('es')">
           <q-img
             width="17vh"
-            :class="{   }"
+            class="mb-5"
             src="../../assets/images/get-app-store-spanish.webp"
           />
           <q-img
             width="15vh"
-            :class="{   }"
+            class="mb-5"
             src="../../assets/images/get-in-google-play-spanish.webp"
           />
         </div>
         <div class="wp-100 flex flex-center mb-8 mt-10" v-else>
           <q-img
             width="15vh"
-            class="mr-10 ml-10"
+            class="mr-10 ml-10 mb-5"
             src="../../assets/images/get-app-store-english.webp"
           />
           <q-img
             width="15vh"
-            :class="{   }"
+            class="mb-5"
             src="../../assets/images/get-in-google-play-english.webp"
           />
         </div>

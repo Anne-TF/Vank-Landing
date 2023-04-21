@@ -8,7 +8,7 @@
                 <p
                     :class="{
                     'fs-40': $q.screen.gt.sm,
-                    'fs-30': $q.screen.lt.md,
+                    'fs-25': $q.screen.lt.md,
                     }"
                     class="q-mt-none text-bold text-center text-white"
                     v-text="$t(`Home.footer.downloadOurApp`)"
@@ -17,33 +17,34 @@
                     <q-icon
                     name="img:icons/yellow-bar-contact.svg"
                     :style="`
-                    width: 24em;
-                    height: 1em;
+                    width: ${$q.screen.gt.sm ? '24em' : '16em'};
+                    height: ${$q.screen.gt.sm ? '1em' : '1em'};
+                    margin-top: ${$q.screen.gt.sm ? '0' : '5px'};
                     `"
                     />
                 </div>
             </div>
-            <div class="wp-100 flex flex-center mb-8 " v-if="((locale as readonly string[])).includes('es')">
+            <div class="wp-100 flex flex-center" v-if="((locale as readonly string[])).includes('es')">
                 <q-img
                     width="22vh"
-                    :class="{   }"
+                    class=" mb-8 "
                     src="../../assets/images/get-app-store-spanish.webp"
                 />
                 <q-img
                     width="19.5vh"
-                    :class="{   }"
+                    class=" mb-8 "
                     src="../../assets/images/get-in-google-play-spanish.webp"
                 />
             </div>
             <div class="wp-100 flex flex-center mb-8 " v-else>
                 <q-img
                     width="19.5vh"
-                    class="mr-15 ml-15"
+                    class="mr-15 ml-15  mb-8 "
                     src="../../assets/images/get-app-store-english.webp"
                 />
                 <q-img
                     width="19.5vh"
-                    :class="{   }"
+                    class=" mb-8 "
                     src="../../assets/images/get-in-google-play-english.webp"
                 />
             </div>

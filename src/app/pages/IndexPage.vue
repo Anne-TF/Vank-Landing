@@ -780,7 +780,7 @@
               class="no-margin text-vk-grey text-center"
               :class="{
                 'fs-33 lh-40': $q.screen.gt.sm,
-                'fs-20 lh-30': $q.screen.lt.md
+                'fs-20 lh-30  mb-40': $q.screen.lt.md
               }"
               v-text="$t('Home.inPayments')"
             />
@@ -814,7 +814,7 @@
               class="no-margin text-vk-grey text-center"
               :class="{
                 'fs-33 lh-40': $q.screen.gt.sm,
-                'fs-20 lh-30': $q.screen.lt.md
+                'fs-20 lh-30 mb-40': $q.screen.lt.md
               }"
               v-text="$t('Home.transactions')"
             />
@@ -844,7 +844,7 @@
               class="no-margin text-vk-grey text-center"
               :class="{
                 'fs-33 lh-40': $q.screen.gt.sm,
-                'fs-20 lh-30': $q.screen.lt.md
+                'fs-20 lh-30 mb-40': $q.screen.lt.md
               }"
               v-text="$t('Home.countries')"
             />
